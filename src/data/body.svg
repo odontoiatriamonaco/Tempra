@@ -10,7 +10,9 @@
   -->
 
   <style>
-    .body-map .silhouette { fill: var(--muscle-idle); }
+    /* La sagoma è decorazione: non deve intercettare i tocchi destinati ai
+       gruppi muscolari, che le stanno sopra. */
+    .body-map .silhouette { fill: var(--muscle-idle); pointer-events: none; }
     .body-map .muscle {
       fill: var(--muscle-idle);
       stroke: var(--muscle-outline);

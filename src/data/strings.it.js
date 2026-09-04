@@ -1,4 +1,4 @@
-// Tempra v0.6.0 — 2026-09-04 13:00
+// Tempra v0.7.0 — 2026-09-04 13:20
 //
 // Tutte le stringhe dell'interfaccia, in italiano. Nessun testo visibile
 // all'utente va scritto dentro i componenti.
@@ -222,15 +222,87 @@ export const UI_STRINGS = Object.freeze({
     noNotes: 'Niente da cambiare per la prossima volta.',
   }),
 
+  progress: Object.freeze({
+    pickExercise: 'Quale esercizio',
+    notEnough:
+      'Servono almeno due sedute con lo stesso esercizio perché ci sia un andamento da mostrare.',
+    workingLoad: 'Carico di lavoro',
+    estimatedMax: 'Carico stimato',
+    e1rmNote:
+      'Il carico stimato è un calcolo dal peso e dalle ripetizioni, utile per vedere l’andamento. Non è un massimale da provare.',
+    sinceStart: 'dalla prima seduta',
+    sessions: 'sedute',
+    measurements: 'Misure',
+    measurementsHint:
+      'Facoltative. Vengono mostrate come sono, senza commenti né stime di composizione corporea.',
+    bodyweight: 'Peso corporeo',
+    addMeasure: 'Aggiungi una misurazione',
+    deleteMeasure: 'Elimina questa misurazione',
+    date: 'Data',
+    fields: Object.freeze({
+      bodyweightKg: 'Peso',
+      waistCm: 'Vita',
+      chestCm: 'Torace',
+      hipsCm: 'Fianchi',
+      armCm: 'Braccio',
+      thighCm: 'Coscia',
+    }),
+  }),
+
+  catalog: Object.freeze({
+    tapMap: 'Tocca un gruppo muscolare sulla figura per filtrare.',
+    clearMuscle: 'Togli il filtro: {n}',
+    byPattern: 'Oppure filtra per schema di movimento.',
+    results: 'esercizi',
+    license: 'Immagini',
+  }),
+
   settings: Object.freeze({
+    timer: 'Timer di recupero',
+    sound: 'Suono a fine recupero',
+    vibration: 'Vibrazione a fine recupero',
+    autoStart: 'Avvio automatico dopo la spunta',
+
     theme: 'Tema',
     themeSystem: 'Come il sistema',
     themeLight: 'Chiaro',
     themeDark: 'Scuro',
+
+    data: 'I tuoi dati',
     exportBackup: 'Esporta backup',
+    exported: 'Backup salvato:',
     importBackup: 'Importa backup',
+    importTitle: 'Sostituire tutti i dati?',
+    importBody:
+      'L’importazione sostituisce quello che c’è adesso. Il catalogo esercizi non viene toccato.',
+    importConfirm: 'Sostituisci tutto',
+    importDone: 'Backup importato.',
+    importFailed: 'Non è stato possibile leggere il file.',
+    countPrograms: 'schede',
+    countSessions: 'sedute',
+    countMeasurements: 'misurazioni',
+
+    regenerate: 'Rigenera la scheda',
+    regenerateTitle: 'Nuovo mesociclo',
+    regenerateBody:
+      'Sei settimane nuove, con gli stessi parametri e gli esercizi principali ruotati.',
+    regenerateKeep: 'Mantieni i pesi raggiunti',
+    regenerateFresh: 'Riparti da capo con i carichi',
+
     resetAll: 'Ricomincia da zero',
+    resetTitle: 'Cancellare tutto?',
+    resetBody:
+      'Spariscono profilo, scheda, sedute, misure e note. Non c’è modo di tornare indietro: se ti serve, esporta prima un backup.',
+    resetFirst: 'Ho capito, voglio cancellare',
+    resetFinal: 'Cancella definitivamente',
+
+    acceptedOn: 'Accettato il',
+    about: 'Informazioni',
     license: 'Licenza',
+    licenseBody:
+      'Tempra è software libero con licenza MIT, fornito così com’è, senza garanzia di alcun tipo.',
+    assetsBody:
+      'Le immagini degli esercizi vengono da Free Exercise DB, di pubblico dominio. I cue tecnici e la figura anatomica sono originali di questo progetto.',
   }),
 
   /** Segnaposto usati finché le schermate non esistono davvero. */

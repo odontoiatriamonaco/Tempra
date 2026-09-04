@@ -1,7 +1,7 @@
 {
   "name": "tempra",
   "private": true,
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "description": "PWA per l'allenamento con i pesi. Tutti i dati restano sul dispositivo.",
   "license": "MIT",

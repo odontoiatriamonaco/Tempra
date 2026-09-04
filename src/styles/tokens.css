@@ -1,4 +1,4 @@
-/* Tempra v0.1.0 — 2026-09-04 08:24 */
+/* Tempra v0.7.0 — 2026-09-04 13:20 */
 
 /*
  * Token di design. Nessun colore hardcoded altrove nel CSS o nell'SVG.
@@ -35,6 +35,16 @@
   --muscle-primary: #8a4b1f;
   --muscle-secondary: #c99a6f;
   --muscle-outline: #b4b4aa;
+
+  /* ---- Colore: grafici ----
+     Due serie, validate con lo script della skill dataviz sui sei controlli
+     (banda di luminosità, croma minimo, separazione per daltonismo, soglia a
+     vista normale, contrasto sulla superficie). Il tema scuro ha una coppia
+     propria, scelta e validata a parte: non è il ribaltamento di questa. */
+  --chart-1: #8a4b1f; /* carico di lavoro */
+  --chart-2: #0f6fa8; /* carico stimato (e1RM) */
+  --chart-grid: #e4e4dd;
+  --chart-axis: #b4b4aa;
 
   /* Quattro livelli della mappa di calore settimanale (spec 6.1) */
   --heat-0: #e4e4dd; /* 0 %      */
@@ -122,6 +132,11 @@
     --muscle-secondary: #8a6a4f;
     --muscle-outline: #52524d;
 
+    --chart-1: #c08544;
+    --chart-2: #3f90c8;
+    --chart-grid: #2b2b28;
+    --chart-axis: #52524d;
+
     --heat-0: #262624;
     --heat-1: #4d3a28;
     --heat-2: #96693f;
@@ -164,6 +179,11 @@
   --muscle-primary: #e0a06a;
   --muscle-secondary: #8a6a4f;
   --muscle-outline: #52524d;
+
+  --chart-1: #c08544;
+  --chart-2: #3f90c8;
+  --chart-grid: #2b2b28;
+  --chart-axis: #52524d;
 
   --heat-0: #262624;
   --heat-1: #4d3a28;

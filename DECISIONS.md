@@ -1,4 +1,4 @@
-<!-- Tempra v0.6.0 — 2026-09-04 13:00 -->
+<!-- Tempra v0.7.0 — 2026-09-04 13:20 -->
 
 # Decisioni di implementazione
 
@@ -462,3 +462,66 @@ Non alla chiusura della seduta: le regole di 4.3 hanno bisogno delle tre
 risposte, e applicare la progressione due volte sulla stessa seduta
 raddoppierebbe gli incrementi. `SessionEnd` chiama `applySession` una volta
 sola, quando il feedback viene salvato e la seduta passa a `completed`.
+
+---
+
+## Fase 6 — Progressi, catalogo, impostazioni
+
+### D-051 · Due grafici con un asse ciascuno, non uno con due scale
+
+La spec 7.1 chiede «grafico e1RM per sessione (linea) + peso di lavoro
+(barre)». Metterli nello stesso riquadro sembra naturale — sono entrambi
+chilogrammi — ma vogliono domini diversi: le barre **devono** partire da zero,
+altrimenti un aumento di 2,5 kg su 100 sembra un raddoppio, mentre la linea
+dell'e1RM va letta ravvicinata o non si vede muovere. Un grafico con due assi
+è la sbagliata classica della data visualization. Quindi due grafici affiancati,
+un asse ciascuno.
+
+Il costo di questa scelta è che il grafico a barre, partendo da zero, rende
+poco visibile il progresso reale. Si compensa con un numero grande sopra i
+grafici: «+7,5 kg dalla prima seduta». È il dato che l'utente cerca, e un
+numero non ha bisogno di scala.
+
+### D-052 · La palette dei grafici è stata validata, non scelta a occhio
+
+Le due serie sono passate dallo script di validazione della skill `dataviz` sui
+sei controlli: banda di luminosità, croma minimo, separazione per daltonismo
+(protanopia, deuteranopia, tritanopia), soglia a vista normale e contrasto sulla
+superficie. La prima coppia provata (`#2f5d8a`) è stata scartata perché sotto la
+soglia di croma: a video legge grigia. La coppia scelta è `#8a4b1f` / `#0f6fa8`,
+con ΔE 20,0 nel caso peggiore di daltonismo.
+
+Il tema scuro ha una coppia propria — `#c08544` / `#3f90c8` — scelta e validata
+contro la superficie scura, non ottenuta schiarendo quella chiara.
+
+### D-053 · Ogni grafico porta con sé la sua tabella
+
+Sotto ogni grafico c'è un `<details>` con i valori esatti. Non è solo una
+concessione all'accessibilità: in palestra il numero preciso serve più della
+forma della curva, e un grafico da 320 px non può etichettare ogni punto.
+
+### D-054 · I gruppi muscolari pari hanno un buco al centro del riquadro
+
+Un test end-to-end ha scoperto che cliccare il centro del path "petto" non
+seleziona il petto: il gruppo è fatto di due ellissi con un vuoto in mezzo, e il
+centro del riquadro cade lì. Il tocco finiva sulla sagoma sottostante. Ora la
+sagoma ha `pointer-events: none`, così un tocco a vuoto non fa niente invece di
+fare la cosa sbagliata. La prova che avevo fatto a mano nel browser non l'aveva
+rivelato, perché inviava l'evento direttamente al path saltando la verifica di
+sovrapposizione.
+
+### D-055 · L'import valida prima di scrivere
+
+`validateBackup` rifiuta qualunque cosa non sia un backup di Tempra, e rifiuta
+anche i backup di uno schema più recente dell'app installata. Un import che
+accetta spazzatura sovrascrive dati che non si possono recuperare: la validazione
+è la parte che conta, ed è quella con più test.
+
+La conferma mostra quante schede, sedute e misurazioni si stanno per
+sovrascrivere: «sostituisco tutto» è una frase che merita un numero accanto.
+
+### D-056 · Nessun commento automatico sulle misure
+
+La sezione misure mostra i numeri e tace. La spec 1.2 tiene fuori le stime di
+composizione corporea; un commento su un peso che sale o scende sarebbe la
+stessa cosa travestita da incoraggiamento.

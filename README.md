@@ -1,4 +1,4 @@
-<!-- Tempra v0.6.0 — 2026-09-04 13:00 -->
+<!-- Tempra v0.7.0 — 2026-09-04 13:20 -->
 
 # Tempra
 
@@ -25,10 +25,10 @@ uscita: dopo il caricamento degli asset l'app non fa nessuna richiesta di rete.
 
 ## Stato
 
-**Fase 5 — progressione** (`v0.6.0`). Il giro si chiude: la seduta insegna
-qualcosa alla scheda e la volta dopo si vede. Restano progressi, catalogo,
-impostazioni (Fase 6) e la PWA (Fase 7). Il piano delle fasi è nella sezione 11
-di `spec.md`.
+**Fase 6 — progressi, catalogo, impostazioni** (`v0.7.0`). L’app è completa
+nelle funzioni: grafici del carico, misure facoltative, catalogo filtrabile,
+backup e reset. Manca solo la PWA — service worker, icone, offline, deploy —
+che è la Fase 7. Il piano delle fasi è nella sezione 11 di `spec.md`.
 
 | Fase | Contenuto | Tag |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ di `spec.md`.
 | 3 | Onboarding e Home | `v0.4.0` ✅ |
 | 4 | Sessione guidata | `v0.5.0` ✅ |
 | 5 | Progressione e modalità "poco tempo" | `v0.6.0` ✅ |
-| 6 | Progressi, catalogo, impostazioni | `v0.7.0` |
+| 6 | Progressi, catalogo, impostazioni | `v0.7.0` ✅ |
 | 7 | PWA, service worker, rilascio | `v1.0.0` |
 
 ## Sviluppo
