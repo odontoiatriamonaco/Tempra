@@ -1,0 +1,2426 @@
+[
+  {
+    "id": "barbell-back-squat",
+    "name": "Squat con bilanciere",
+    "pattern": "squat",
+    "tier": "main",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings",
+      "lower-back",
+      "abs"
+    ],
+    "equipment": [
+      "barbell",
+      "rack"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Bilanciere appoggiato sui trapezi, non sul collo: crea lo scalino stringendo le scapole.",
+      "Piedi a larghezza spalle, punte leggermente aperte, peso distribuito su tutta la pianta.",
+      "Scendi mandando indietro i fianchi e aprendo le ginocchia verso le punte dei piedi.",
+      "Risali spingendo il pavimento lontano, mantenendo il torace alto."
+    ],
+    "images": [
+      "/images/exercises/barbell-back-squat/0.webp",
+      "/images/exercises/barbell-back-squat/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-front-squat",
+      "hack-squat-machine",
+      "goblet-squat"
+    ]
+  },
+  {
+    "id": "barbell-front-squat",
+    "name": "Front squat",
+    "pattern": "squat",
+    "tier": "main",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "upper-back",
+      "abs"
+    ],
+    "equipment": [
+      "barbell",
+      "rack"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Bilanciere sui deltoidi anteriori, gomiti alti e paralleli al pavimento.",
+      "Tieni i gomiti su per tutta la salita: se cadono, il bilanciere rotola in avanti.",
+      "Busto più verticale rispetto allo squat: scendi tra le gambe, non indietro.",
+      "Respira in alto, trattieni durante la discesa, espira superato il punto difficile."
+    ],
+    "images": [
+      "/images/exercises/barbell-front-squat/0.webp",
+      "/images/exercises/barbell-front-squat/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-back-squat",
+      "hack-squat-machine",
+      "goblet-squat"
+    ]
+  },
+  {
+    "id": "goblet-squat",
+    "name": "Goblet squat",
+    "pattern": "squat",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "abs",
+      "upper-back"
+    ],
+    "equipment": [
+      "dumbbell"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Manubrio verticale contro lo sterno, mani a coppa sotto il disco superiore.",
+      "Gomiti dentro le ginocchia nel punto basso, senza spingerle verso l'esterno.",
+      "Scendi finché i gomiti sfiorano l'interno coscia, poi risali senza rimbalzare."
+    ],
+    "images": [
+      "/images/exercises/goblet-squat/0.webp",
+      "/images/exercises/goblet-squat/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-front-squat",
+      "leg-press",
+      "hack-squat-machine"
+    ]
+  },
+  {
+    "id": "hack-squat-machine",
+    "name": "Hack squat alla macchina",
+    "pattern": "squat",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Schiena e bacino aderenti allo schienale per tutta l'alzata.",
+      "Piedi a metà pedana: più in alto scarichi sui glutei, più in basso sui quadricipiti.",
+      "Scendi controllato fino a coscia parallela, poi spingi senza bloccare le ginocchia in cima."
+    ],
+    "images": [
+      "/images/exercises/hack-squat-machine/0.webp",
+      "/images/exercises/hack-squat-machine/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "leg-press",
+      "barbell-back-squat",
+      "barbell-front-squat"
+    ]
+  },
+  {
+    "id": "leg-press",
+    "name": "Leg press",
+    "pattern": "squat",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Piedi a larghezza spalle al centro della pedana, punte appena aperte.",
+      "Scendi finché il bacino resta appoggiato: se si stacca dallo schienale, hai sceso troppo.",
+      "Spingi con tutta la pianta del piede, senza staccare i talloni.",
+      "Non bloccare le ginocchia in estensione completa: fermati poco prima."
+    ],
+    "images": [
+      "/images/exercises/leg-press/0.webp",
+      "/images/exercises/leg-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "hack-squat-machine",
+      "goblet-squat",
+      "barbell-back-squat"
+    ]
+  },
+  {
+    "id": "barbell-deadlift",
+    "name": "Stacco da terra",
+    "pattern": "hinge",
+    "tier": "main",
+    "primaryMuscles": [
+      "hamstrings",
+      "glutes",
+      "lower-back"
+    ],
+    "secondaryMuscles": [
+      "upper-back",
+      "traps",
+      "forearms",
+      "quads"
+    ],
+    "equipment": [
+      "barbell"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Bilanciere sopra il mesopiede, stinchi che lo sfiorano prima di partire.",
+      "Prendi aria, blocca il torace e porta le scapole sopra il bilanciere.",
+      "Spingi il pavimento con i piedi: il bilanciere sale strisciando lungo le gambe.",
+      "Chiudi con i glutei, senza spingere il bacino oltre la verticale."
+    ],
+    "images": [
+      "/images/exercises/barbell-deadlift/0.webp",
+      "/images/exercises/barbell-deadlift/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "trap-bar-deadlift",
+      "barbell-romanian-deadlift",
+      "barbell-good-morning"
+    ]
+  },
+  {
+    "id": "barbell-romanian-deadlift",
+    "name": "Stacco rumeno",
+    "pattern": "hinge",
+    "tier": "main",
+    "primaryMuscles": [
+      "hamstrings",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "lower-back",
+      "forearms"
+    ],
+    "equipment": [
+      "barbell",
+      "rack"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Parti in piedi: questo esercizio scende per primo, non parte da terra.",
+      "Ginocchia morbide e ferme, il movimento è tutto dei fianchi che vanno indietro.",
+      "Scendi finché senti i femorali tirare, di solito poco sotto il ginocchio.",
+      "Il bilanciere resta a contatto con la coscia per tutta la discesa."
+    ],
+    "images": [
+      "/images/exercises/barbell-romanian-deadlift/0.webp",
+      "/images/exercises/barbell-romanian-deadlift/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-deadlift",
+      "barbell-good-morning",
+      "trap-bar-deadlift"
+    ]
+  },
+  {
+    "id": "trap-bar-deadlift",
+    "name": "Stacco con trap bar",
+    "pattern": "hinge",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "glutes",
+      "hamstrings",
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "lower-back",
+      "traps",
+      "forearms"
+    ],
+    "equipment": [
+      "trap-bar"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 5,
+    "defaultRestSec": 120,
+    "cues": [
+      "In piedi al centro della trap bar, impugnature esattamente ai lati dei fianchi.",
+      "Petto alto e braccia appese: le braccia sono ganci, non tirano.",
+      "Spingi con le gambe fino a stare dritto, poi scendi controllando."
+    ],
+    "images": [
+      "/images/exercises/trap-bar-deadlift/0.webp",
+      "/images/exercises/trap-bar-deadlift/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-deadlift",
+      "barbell-romanian-deadlift",
+      "barbell-good-morning"
+    ]
+  },
+  {
+    "id": "barbell-good-morning",
+    "name": "Good morning",
+    "pattern": "hinge",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "hamstrings",
+      "lower-back"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "equipment": [
+      "barbell",
+      "rack"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Carico volutamente basso: qui il peso conta molto meno del controllo.",
+      "Bilanciere sui trapezi come nello squat, ginocchia leggermente flesse.",
+      "Manda i fianchi indietro e piega il busto in avanti tenendo la schiena piatta.",
+      "Fermati quando il busto è a circa 45 gradi, poi risali con i glutei."
+    ],
+    "images": [
+      "/images/exercises/barbell-good-morning/0.webp",
+      "/images/exercises/barbell-good-morning/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-romanian-deadlift",
+      "trap-bar-deadlift",
+      "barbell-deadlift"
+    ]
+  },
+  {
+    "id": "bulgarian-split-squat",
+    "name": "Affondo bulgaro",
+    "pattern": "lunge",
+    "tier": "main",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings",
+      "abs"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Collo del piede posteriore appoggiato alla panca, non la punta.",
+      "Distanza giusta: nel punto basso lo stinco anteriore resta quasi verticale.",
+      "Scendi in verticale finché il ginocchio dietro sfiora il pavimento.",
+      "Completa tutte le ripetizioni da un lato prima di cambiare."
+    ],
+    "images": [],
+    "license": {
+      "source": "Tempra",
+      "type": "MIT",
+      "url": "https://github.com/odontoiatriamonaco/Tempra"
+    },
+    "substitutes": [
+      "dumbbell-reverse-lunge",
+      "barbell-walking-lunge",
+      "dumbbell-step-up"
+    ]
+  },
+  {
+    "id": "barbell-walking-lunge",
+    "name": "Affondo camminato con bilanciere",
+    "pattern": "lunge",
+    "tier": "main",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings",
+      "abs"
+    ],
+    "equipment": [
+      "barbell"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Passo lungo abbastanza da far scendere il ginocchio dietro vicino al pavimento.",
+      "Busto verticale: se ti sbilanci in avanti, accorcia il passo.",
+      "Spingi con il tallone della gamba avanti per portarti al passo successivo.",
+      "Conta le ripetizioni per gamba, non i passi totali."
+    ],
+    "images": [
+      "/images/exercises/barbell-walking-lunge/0.webp",
+      "/images/exercises/barbell-walking-lunge/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-reverse-lunge",
+      "bulgarian-split-squat",
+      "dumbbell-step-up"
+    ]
+  },
+  {
+    "id": "dumbbell-reverse-lunge",
+    "name": "Affondo indietro con manubri",
+    "pattern": "lunge",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "glutes",
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": [
+      "dumbbell"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Il passo va indietro: la gamba davanti resta ferma dove è.",
+      "Appoggia la punta del piede dietro e scendi finché il ginocchio sfiora terra.",
+      "Torna su spingendo con il tallone del piede davanti."
+    ],
+    "images": [
+      "/images/exercises/dumbbell-reverse-lunge/0.webp",
+      "/images/exercises/dumbbell-reverse-lunge/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "bulgarian-split-squat",
+      "barbell-walking-lunge",
+      "dumbbell-step-up"
+    ]
+  },
+  {
+    "id": "dumbbell-step-up",
+    "name": "Step up con manubri",
+    "pattern": "lunge",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "calves",
+      "hamstrings"
+    ],
+    "equipment": [
+      "dumbbell",
+      "box"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Rialzo all'altezza che porta la coscia parallela quando ci appoggi il piede.",
+      "Sali spingendo solo con la gamba sopra: quella a terra non dà la spinta.",
+      "Scendi lentamente appoggiando prima la punta, senza lasciarti cadere."
+    ],
+    "images": [
+      "/images/exercises/dumbbell-step-up/0.webp",
+      "/images/exercises/dumbbell-step-up/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-reverse-lunge",
+      "bulgarian-split-squat",
+      "barbell-walking-lunge"
+    ]
+  },
+  {
+    "id": "barbell-bench-press",
+    "name": "Panca piana con bilanciere",
+    "pattern": "h-push",
+    "tier": "main",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front-delts",
+      "triceps"
+    ],
+    "equipment": [
+      "barbell",
+      "bench",
+      "rack"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Scapole addotte e depresse prima di staccare il bilanciere dai supporti.",
+      "Piedi piantati a terra, cinque punti di appoggio: piedi, glutei, dorso, testa.",
+      "Scendi verso la parte bassa del petto, gomiti a circa 45 gradi dal busto.",
+      "Tocca senza rimbalzare e spingi tornando sopra la spalla."
+    ],
+    "images": [
+      "/images/exercises/barbell-bench-press/0.webp",
+      "/images/exercises/barbell-bench-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-bench-press",
+      "machine-chest-press",
+      "incline-barbell-bench-press"
+    ]
+  },
+  {
+    "id": "dumbbell-bench-press",
+    "name": "Panca piana con manubri",
+    "pattern": "h-push",
+    "tier": "main",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front-delts",
+      "triceps"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Porta i manubri in posizione con le ginocchia, poi sdraiati insieme a loro.",
+      "Scapole strette anche qui: la panca deve sostenere il dorso, non le spalle.",
+      "Scendi finché i gomiti superano di poco la linea del busto.",
+      "In alto avvicina i manubri senza farli sbattere."
+    ],
+    "images": [
+      "/images/exercises/dumbbell-bench-press/0.webp",
+      "/images/exercises/dumbbell-bench-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-bench-press",
+      "machine-chest-press",
+      "incline-barbell-bench-press"
+    ]
+  },
+  {
+    "id": "incline-barbell-bench-press",
+    "name": "Panca inclinata con bilanciere",
+    "pattern": "h-push",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "chest",
+      "front-delts"
+    ],
+    "secondaryMuscles": [
+      "triceps"
+    ],
+    "equipment": [
+      "barbell",
+      "bench",
+      "rack"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Inclinazione tra 30 e 45 gradi: più su di così lavorano solo le spalle.",
+      "Scendi verso la clavicola, non verso lo sterno come nella panca piana.",
+      "Aspettati carichi più bassi della panca piana: è normale."
+    ],
+    "images": [
+      "/images/exercises/incline-barbell-bench-press/0.webp",
+      "/images/exercises/incline-barbell-bench-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-bench-press",
+      "dumbbell-bench-press",
+      "machine-chest-press"
+    ]
+  },
+  {
+    "id": "machine-chest-press",
+    "name": "Chest press alla macchina",
+    "pattern": "h-push",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front-delts",
+      "triceps"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Regola il sedile in modo che le impugnature siano all'altezza del petto.",
+      "Dorso appoggiato allo schienale, scapole indietro anche qui.",
+      "Spingi senza bloccare del tutto i gomiti e torna controllando il ritorno."
+    ],
+    "images": [
+      "/images/exercises/machine-chest-press/0.webp",
+      "/images/exercises/machine-chest-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-bench-press",
+      "dumbbell-bench-press",
+      "parallel-bar-dip"
+    ]
+  },
+  {
+    "id": "parallel-bar-dip",
+    "name": "Dip alle parallele",
+    "pattern": "h-push",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "chest",
+      "triceps"
+    ],
+    "secondaryMuscles": [
+      "front-delts"
+    ],
+    "equipment": [
+      "dip-station"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Busto inclinato in avanti per caricare il petto, verticale per i tricipiti.",
+      "Scendi finché le spalle arrivano all'altezza dei gomiti, non oltre.",
+      "Spalle lontane dalle orecchie per tutta l'esecuzione.",
+      "Aggiungi peso alla cintura quando superi le ripetizioni previste a corpo libero."
+    ],
+    "images": [
+      "/images/exercises/parallel-bar-dip/0.webp",
+      "/images/exercises/parallel-bar-dip/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "machine-chest-press",
+      "barbell-bench-press",
+      "dumbbell-bench-press"
+    ]
+  },
+  {
+    "id": "barbell-overhead-press",
+    "name": "Lento avanti con bilanciere",
+    "pattern": "v-push",
+    "tier": "main",
+    "primaryMuscles": [
+      "front-delts"
+    ],
+    "secondaryMuscles": [
+      "side-delts",
+      "triceps",
+      "abs"
+    ],
+    "equipment": [
+      "barbell",
+      "rack"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Presa poco più larga delle spalle, bilanciere appoggiato sui deltoidi anteriori.",
+      "Stringi glutei e addome: senza quello il carico scappa nella schiena.",
+      "Sposta la testa appena indietro per far passare il bilanciere, poi rimettila sotto.",
+      "In alto il bilanciere è sopra la nuca, non davanti al viso."
+    ],
+    "images": [
+      "/images/exercises/barbell-overhead-press/0.webp",
+      "/images/exercises/barbell-overhead-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-shoulder-press",
+      "seated-machine-shoulder-press",
+      "arnold-press"
+    ]
+  },
+  {
+    "id": "dumbbell-shoulder-press",
+    "name": "Lento con manubri",
+    "pattern": "v-push",
+    "tier": "main",
+    "primaryMuscles": [
+      "front-delts"
+    ],
+    "secondaryMuscles": [
+      "side-delts",
+      "triceps"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Schienale quasi verticale, schiena appoggiata senza inarcarsi.",
+      "Parti con i manubri all'altezza delle orecchie, gomiti sotto i polsi.",
+      "Spingi in alto e appena verso il centro, senza far toccare i manubri.",
+      "Scendi controllando: la discesa vale quanto la salita."
+    ],
+    "images": [
+      "/images/exercises/dumbbell-shoulder-press/0.webp",
+      "/images/exercises/dumbbell-shoulder-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-overhead-press",
+      "arnold-press",
+      "seated-machine-shoulder-press"
+    ]
+  },
+  {
+    "id": "seated-machine-shoulder-press",
+    "name": "Shoulder press alla macchina",
+    "pattern": "v-push",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "front-delts"
+    ],
+    "secondaryMuscles": [
+      "side-delts",
+      "triceps"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Sedile all'altezza che mette le impugnature vicine alle spalle.",
+      "Spingi fino quasi a estendere i gomiti, senza bloccarli di scatto.",
+      "Torna lentamente fino a sentire le spalle in tensione."
+    ],
+    "images": [
+      "/images/exercises/seated-machine-shoulder-press/0.webp",
+      "/images/exercises/seated-machine-shoulder-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-shoulder-press",
+      "barbell-overhead-press",
+      "arnold-press"
+    ]
+  },
+  {
+    "id": "arnold-press",
+    "name": "Arnold press",
+    "pattern": "v-push",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "front-delts",
+      "side-delts"
+    ],
+    "secondaryMuscles": [
+      "triceps"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Parti con i palmi rivolti verso di te, manubri davanti al viso.",
+      "Ruota i palmi verso l'esterno mentre spingi verso l'alto.",
+      "Ripercorri la stessa rotazione al contrario in discesa.",
+      "Carico più basso del lento normale: la rotazione toglie stabilità."
+    ],
+    "images": [
+      "/images/exercises/arnold-press/0.webp",
+      "/images/exercises/arnold-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-shoulder-press",
+      "seated-machine-shoulder-press",
+      "barbell-overhead-press"
+    ]
+  },
+  {
+    "id": "barbell-bent-over-row",
+    "name": "Rematore con bilanciere",
+    "pattern": "h-pull",
+    "tier": "main",
+    "primaryMuscles": [
+      "upper-back",
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "rear-delts",
+      "lower-back",
+      "forearms"
+    ],
+    "equipment": [
+      "barbell"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Busto tra 30 e 45 gradi, ginocchia morbide, schiena piatta e ferma.",
+      "Tira il bilanciere verso l'ombelico, non verso il petto.",
+      "Gomiti vicini al busto, scapole che si stringono a fine tirata.",
+      "Se il busto si alza a ogni ripetizione, togli peso."
+    ],
+    "images": [
+      "/images/exercises/barbell-bent-over-row/0.webp",
+      "/images/exercises/barbell-bent-over-row/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "one-arm-dumbbell-row",
+      "chest-supported-t-bar-row",
+      "seated-cable-row"
+    ]
+  },
+  {
+    "id": "one-arm-dumbbell-row",
+    "name": "Rematore con manubrio",
+    "pattern": "h-pull",
+    "tier": "main",
+    "primaryMuscles": [
+      "lats",
+      "upper-back"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "rear-delts",
+      "forearms"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Mano e ginocchio sulla panca, schiena parallela al pavimento.",
+      "Lascia scendere la spalla in basso all'inizio, poi tira portandola indietro.",
+      "Il gomito passa vicino al fianco e arriva sopra la linea del busto.",
+      "Il busto non ruota: se si apre, il peso è troppo."
+    ],
+    "images": [
+      "/images/exercises/one-arm-dumbbell-row/0.webp",
+      "/images/exercises/one-arm-dumbbell-row/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-bent-over-row",
+      "seated-cable-row",
+      "chest-supported-t-bar-row"
+    ]
+  },
+  {
+    "id": "seated-cable-row",
+    "name": "Pulley basso",
+    "pattern": "h-pull",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "upper-back",
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "rear-delts"
+    ],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Busto verticale e fermo: non dondolare avanti e indietro per tirare.",
+      "Parti lasciando allungare le scapole, poi stringile mentre tiri.",
+      "Porta l'impugnatura alla pancia, gomiti che sfiorano i fianchi."
+    ],
+    "images": [
+      "/images/exercises/seated-cable-row/0.webp",
+      "/images/exercises/seated-cable-row/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "chest-supported-t-bar-row",
+      "one-arm-dumbbell-row",
+      "barbell-bent-over-row"
+    ]
+  },
+  {
+    "id": "chest-supported-t-bar-row",
+    "name": "Rematore con appoggio al petto",
+    "pattern": "h-pull",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "upper-back",
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "rear-delts"
+    ],
+    "equipment": [
+      "t-bar",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Petto aderente all'appoggio per tutta la serie: è il vantaggio dell'esercizio.",
+      "Braccia distese in partenza, scapole che si allungano in avanti.",
+      "Tira con i gomiti stretti e fermati un istante a fine corsa."
+    ],
+    "images": [],
+    "license": {
+      "source": "Tempra",
+      "type": "MIT",
+      "url": "https://github.com/odontoiatriamonaco/Tempra"
+    },
+    "substitutes": [
+      "seated-cable-row",
+      "barbell-bent-over-row",
+      "one-arm-dumbbell-row"
+    ]
+  },
+  {
+    "id": "pull-up",
+    "name": "Trazioni presa prona",
+    "pattern": "v-pull",
+    "tier": "main",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "upper-back",
+      "forearms"
+    ],
+    "equipment": [
+      "pull-up-bar"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Presa poco più larga delle spalle, palmi in avanti.",
+      "Parti abbassando le spalle: prima si attivano le scapole, poi tirano le braccia.",
+      "Sali finché il mento supera la sbarra, senza dare calci con le gambe.",
+      "Scendi fino a braccia distese ma spalle ancora attive."
+    ],
+    "images": [
+      "/images/exercises/pull-up/0.webp",
+      "/images/exercises/pull-up/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "chin-up",
+      "lat-pulldown",
+      "assisted-pull-up-machine"
+    ]
+  },
+  {
+    "id": "chin-up",
+    "name": "Trazioni presa supina",
+    "pattern": "v-pull",
+    "tier": "main",
+    "primaryMuscles": [
+      "lats",
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "upper-back",
+      "forearms"
+    ],
+    "equipment": [
+      "pull-up-bar"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 180,
+    "cues": [
+      "Palmi rivolti verso di te, mani a larghezza spalle.",
+      "Gomiti che scendono verso i fianchi, petto che punta alla sbarra.",
+      "Di solito riesci a fare più ripetizioni che in presa prona: usane il vantaggio."
+    ],
+    "images": [
+      "/images/exercises/chin-up/0.webp",
+      "/images/exercises/chin-up/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "pull-up",
+      "lat-pulldown",
+      "assisted-pull-up-machine"
+    ]
+  },
+  {
+    "id": "lat-pulldown",
+    "name": "Lat machine",
+    "pattern": "v-pull",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "upper-back",
+      "forearms"
+    ],
+    "equipment": [
+      "cable",
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Cosce bloccate sotto i fermi: regolali prima di caricare.",
+      "Busto appena inclinato indietro e fermo lì per tutta la serie.",
+      "Porta la barra alla clavicola tirando con i gomiti verso il basso.",
+      "Risali controllando fino a braccia distese."
+    ],
+    "images": [
+      "/images/exercises/lat-pulldown/0.webp",
+      "/images/exercises/lat-pulldown/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "assisted-pull-up-machine",
+      "pull-up",
+      "chin-up"
+    ]
+  },
+  {
+    "id": "assisted-pull-up-machine",
+    "name": "Trazioni assistite alla macchina",
+    "pattern": "v-pull",
+    "tier": "secondary",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "upper-back"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 120,
+    "cues": [
+      "Più peso metti al contrappeso, più sei aiutato: qui il carico funziona al contrario.",
+      "Ginocchia o piedi ben appoggiati sulla pedana prima di partire.",
+      "Stessa tecnica delle trazioni libere: spalle basse, gomiti verso i fianchi."
+    ],
+    "images": [],
+    "license": {
+      "source": "Tempra",
+      "type": "MIT",
+      "url": "https://github.com/odontoiatriamonaco/Tempra"
+    },
+    "substitutes": [
+      "lat-pulldown",
+      "pull-up",
+      "chin-up"
+    ]
+  },
+  {
+    "id": "leg-extension",
+    "name": "Leg extension",
+    "pattern": "iso-quad",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Asse di rotazione della macchina allineata con il ginocchio.",
+      "Rullo appoggiato sopra la caviglia, non sullo stinco.",
+      "Estendi fino a fermarti un istante in alto, poi scendi lentamente."
+    ],
+    "images": [
+      "/images/exercises/leg-extension/0.webp",
+      "/images/exercises/leg-extension/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "single-leg-extension",
+      "sissy-squat"
+    ]
+  },
+  {
+    "id": "single-leg-extension",
+    "name": "Leg extension a una gamba",
+    "pattern": "iso-quad",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Una gamba per volta: utile se noti che una spinge più dell'altra.",
+      "Il bacino resta fermo sul sedile, senza ruotare per aiutare.",
+      "Stesso numero di ripetizioni su entrambi i lati, partendo dal lato meno forte."
+    ],
+    "images": [
+      "/images/exercises/single-leg-extension/0.webp",
+      "/images/exercises/single-leg-extension/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "leg-extension",
+      "sissy-squat"
+    ]
+  },
+  {
+    "id": "sissy-squat",
+    "name": "Sissy squat",
+    "pattern": "iso-quad",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "abs"
+    ],
+    "equipment": [
+      "bodyweight"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Tieniti a un supporto con una mano finché non hai preso confidenza.",
+      "Ginocchia che avanzano oltre le punte mentre il bacino resta in linea con le spalle.",
+      "Scendi solo fin dove riesci a risalire senza strappi.",
+      "Aggiungi un disco al petto quando il corpo libero diventa facile."
+    ],
+    "images": [
+      "/images/exercises/sissy-squat/0.webp",
+      "/images/exercises/sissy-squat/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "leg-extension",
+      "single-leg-extension"
+    ]
+  },
+  {
+    "id": "lying-leg-curl",
+    "name": "Leg curl da sdraiato",
+    "pattern": "iso-ham",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "calves"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Ginocchia appena oltre il bordo del cuscino.",
+      "Bacino appoggiato: se si solleva a ogni ripetizione, riduci il carico.",
+      "Porta i talloni verso i glutei e trattieni un istante prima di scendere."
+    ],
+    "images": [
+      "/images/exercises/lying-leg-curl/0.webp",
+      "/images/exercises/lying-leg-curl/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "seated-leg-curl",
+      "nordic-hamstring-curl"
+    ]
+  },
+  {
+    "id": "seated-leg-curl",
+    "name": "Leg curl da seduto",
+    "pattern": "iso-ham",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "calves"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Fermo sulle cosce ben stretto, altrimenti il bacino si stacca.",
+      "Schiena appoggiata allo schienale per tutta la serie.",
+      "Piega le ginocchia il più possibile, poi risali senza far sbattere i pesi."
+    ],
+    "images": [
+      "/images/exercises/seated-leg-curl/0.webp",
+      "/images/exercises/seated-leg-curl/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "lying-leg-curl",
+      "nordic-hamstring-curl"
+    ]
+  },
+  {
+    "id": "nordic-hamstring-curl",
+    "name": "Nordic curl",
+    "pattern": "iso-ham",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "equipment": [
+      "bodyweight"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Caviglie bloccate sotto un appoggio stabile, ginocchia su un tappetino.",
+      "Corpo dritto dalle ginocchia alle spalle: non piegarti in avanti dai fianchi.",
+      "Scendi il più lentamente possibile e appoggia le mani a terra quando cedi.",
+      "Torna su spingendo con le mani finché non riesci a farlo con i soli femorali."
+    ],
+    "images": [
+      "/images/exercises/nordic-hamstring-curl/0.webp",
+      "/images/exercises/nordic-hamstring-curl/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "lying-leg-curl",
+      "seated-leg-curl"
+    ]
+  },
+  {
+    "id": "barbell-hip-thrust",
+    "name": "Hip thrust con bilanciere",
+    "pattern": "iso-glute",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings",
+      "quads"
+    ],
+    "equipment": [
+      "barbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Bordo inferiore delle scapole appoggiato alla panca, non le spalle.",
+      "Bilanciere sulla piega dell'anca con un cuscinetto sotto.",
+      "Piedi tali che a fine spinta lo stinco sia verticale.",
+      "In alto busto e cosce in linea, mento verso il petto e glutei stretti."
+    ],
+    "images": [
+      "/images/exercises/barbell-hip-thrust/0.webp",
+      "/images/exercises/barbell-hip-thrust/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "glute-bridge",
+      "cable-glute-kickback"
+    ]
+  },
+  {
+    "id": "glute-bridge",
+    "name": "Ponte per glutei",
+    "pattern": "iso-glute",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": [
+      "barbell"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Sdraiato a terra, stessa spinta dell'hip thrust ma con corsa più breve.",
+      "Spingi dai talloni e stringi i glutei in alto per un secondo pieno.",
+      "Scendi sfiorando il pavimento senza appoggiare tutto il peso."
+    ],
+    "images": [
+      "/images/exercises/glute-bridge/0.webp",
+      "/images/exercises/glute-bridge/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-hip-thrust",
+      "cable-glute-kickback"
+    ]
+  },
+  {
+    "id": "cable-glute-kickback",
+    "name": "Slancio ai cavi",
+    "pattern": "iso-glute",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Cavigliera bassa, mani appoggiate al telaio per stare stabile.",
+      "Porta la gamba indietro tenendo il busto fermo: non inarcarti per andare più su.",
+      "Fermati quando senti il gluteo stringersi, poi torna lentamente."
+    ],
+    "images": [
+      "/images/exercises/cable-glute-kickback/0.webp",
+      "/images/exercises/cable-glute-kickback/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-hip-thrust",
+      "glute-bridge"
+    ]
+  },
+  {
+    "id": "standing-calf-raise",
+    "name": "Calf in piedi",
+    "pattern": "iso-calf",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Avampiede sulla pedana, talloni liberi di scendere sotto il livello.",
+      "Scendi fino ad allungare bene, poi sali il più in alto possibile.",
+      "Un secondo di pausa in alto e uno in basso: niente rimbalzi."
+    ],
+    "images": [
+      "/images/exercises/standing-calf-raise/0.webp",
+      "/images/exercises/standing-calf-raise/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "seated-calf-raise",
+      "leg-press-calf-raise"
+    ]
+  },
+  {
+    "id": "seated-calf-raise",
+    "name": "Calf da seduto",
+    "pattern": "iso-calf",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Con il ginocchio piegato lavora la parte profonda del polpaccio.",
+      "Cuscinetto sulle cosce vicino alle ginocchia, non a metà femore.",
+      "Corsa completa: giù fino in fondo, su fino in punta."
+    ],
+    "images": [
+      "/images/exercises/seated-calf-raise/0.webp",
+      "/images/exercises/seated-calf-raise/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "standing-calf-raise",
+      "leg-press-calf-raise"
+    ]
+  },
+  {
+    "id": "leg-press-calf-raise",
+    "name": "Calf alla leg press",
+    "pattern": "iso-calf",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Solo gli avampiedi sul bordo basso della pedana.",
+      "Gambe quasi distese ma ginocchia mai bloccate.",
+      "Spingi con le punte e controlla il ritorno: qui il carico è alto e va gestito."
+    ],
+    "images": [
+      "/images/exercises/leg-press-calf-raise/0.webp",
+      "/images/exercises/leg-press-calf-raise/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "standing-calf-raise",
+      "seated-calf-raise"
+    ]
+  },
+  {
+    "id": "dumbbell-fly",
+    "name": "Croci con manubri",
+    "pattern": "iso-chest",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front-delts"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Gomiti leggermente piegati e fissi in quell'angolo per tutto il movimento.",
+      "Apri finché senti il petto allungarsi, senza scendere sotto la linea della panca.",
+      "Chiudi immaginando di abbracciare, non di spingere."
+    ],
+    "images": [
+      "/images/exercises/dumbbell-fly/0.webp",
+      "/images/exercises/dumbbell-fly/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "cable-crossover",
+      "pec-deck"
+    ]
+  },
+  {
+    "id": "cable-crossover",
+    "name": "Croci ai cavi",
+    "pattern": "iso-chest",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front-delts"
+    ],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Un piede avanti per stare stabile, busto appena inclinato.",
+      "Pulegge alte caricano la parte bassa del petto, basse quella alta.",
+      "Incrocia leggermente le mani a fine chiusura e trattieni un istante."
+    ],
+    "images": [
+      "/images/exercises/cable-crossover/0.webp",
+      "/images/exercises/cable-crossover/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-fly",
+      "pec-deck"
+    ]
+  },
+  {
+    "id": "pec-deck",
+    "name": "Pectoral machine",
+    "pattern": "iso-chest",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front-delts"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Sedile all'altezza che mette le impugnature all'altezza del petto.",
+      "Dorso aderente allo schienale, gomiti alla stessa altezza delle spalle.",
+      "Chiudi fino a sfiorare le impugnature e riapri lentamente."
+    ],
+    "images": [
+      "/images/exercises/pec-deck/0.webp",
+      "/images/exercises/pec-deck/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-fly",
+      "cable-crossover"
+    ]
+  },
+  {
+    "id": "straight-arm-pulldown",
+    "name": "Pullover ai cavi",
+    "pattern": "iso-back",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "upper-back",
+      "triceps"
+    ],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Puleggia alta, braccia quasi distese e fisse in quell'angolo.",
+      "Porta la barra alle cosce ruotando solo dalle spalle.",
+      "Busto inclinato in avanti e fermo: non trasformarlo in una spinta di tricipiti."
+    ],
+    "images": [
+      "/images/exercises/straight-arm-pulldown/0.webp",
+      "/images/exercises/straight-arm-pulldown/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-pullover",
+      "barbell-shrug"
+    ]
+  },
+  {
+    "id": "dumbbell-pullover",
+    "name": "Pullover con manubrio",
+    "pattern": "iso-back",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "chest",
+      "triceps"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Sdraiato lungo la panca, manubrio tenuto a due mani sopra il petto.",
+      "Porta il manubrio dietro la testa finché senti i dorsali allungarsi.",
+      "Torna sopra il petto senza superare la verticale."
+    ],
+    "images": [
+      "/images/exercises/dumbbell-pullover/0.webp",
+      "/images/exercises/dumbbell-pullover/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "straight-arm-pulldown",
+      "barbell-shrug"
+    ]
+  },
+  {
+    "id": "barbell-shrug",
+    "name": "Scrollate con bilanciere",
+    "pattern": "iso-back",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "traps"
+    ],
+    "secondaryMuscles": [
+      "upper-back",
+      "forearms"
+    ],
+    "equipment": [
+      "barbell"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Braccia distese e rilassate: sono solo il collegamento al bilanciere.",
+      "Alza le spalle dritto verso le orecchie, senza ruotarle.",
+      "Trattieni in alto un secondo pieno, poi scendi controllando.",
+      "Usa le fasce se la presa cede prima dei trapezi."
+    ],
+    "images": [
+      "/images/exercises/barbell-shrug/0.webp",
+      "/images/exercises/barbell-shrug/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "straight-arm-pulldown",
+      "dumbbell-pullover"
+    ]
+  },
+  {
+    "id": "dumbbell-lateral-raise",
+    "name": "Alzate laterali con manubri",
+    "pattern": "iso-delt-side",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "side-delts"
+    ],
+    "secondaryMuscles": [
+      "traps"
+    ],
+    "equipment": [
+      "dumbbell"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Gomiti appena piegati, manubri che salgono verso i lati.",
+      "Fermati all'altezza delle spalle: più su lavorano i trapezi.",
+      "Scendi in tre secondi: qui il carico serve meno del controllo.",
+      "Se devi dondolare per alzarli, sono troppo pesanti."
+    ],
+    "images": [
+      "/images/exercises/dumbbell-lateral-raise/0.webp",
+      "/images/exercises/dumbbell-lateral-raise/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "cable-lateral-raise",
+      "machine-lateral-raise"
+    ]
+  },
+  {
+    "id": "cable-lateral-raise",
+    "name": "Alzate laterali ai cavi",
+    "pattern": "iso-delt-side",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "side-delts"
+    ],
+    "secondaryMuscles": [
+      "traps"
+    ],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Puleggia in basso, cavo che passa davanti al corpo.",
+      "Il cavo tiene la tensione anche in basso, dove i manubri la perdono.",
+      "Un braccio per volta, mano libera appoggiata al telaio."
+    ],
+    "images": [
+      "/images/exercises/cable-lateral-raise/0.webp",
+      "/images/exercises/cable-lateral-raise/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-lateral-raise",
+      "machine-lateral-raise"
+    ]
+  },
+  {
+    "id": "machine-lateral-raise",
+    "name": "Alzate laterali alla macchina",
+    "pattern": "iso-delt-side",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "side-delts"
+    ],
+    "secondaryMuscles": [
+      "traps"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Sedile regolato in modo che l'asse della macchina sia all'altezza delle spalle.",
+      "Spingi con la parte esterna del braccio contro il cuscinetto, non con le mani.",
+      "Torna giù lentamente senza far appoggiare i pesi tra una ripetizione e l'altra."
+    ],
+    "images": [],
+    "license": {
+      "source": "Tempra",
+      "type": "MIT",
+      "url": "https://github.com/odontoiatriamonaco/Tempra"
+    },
+    "substitutes": [
+      "dumbbell-lateral-raise",
+      "cable-lateral-raise"
+    ]
+  },
+  {
+    "id": "reverse-pec-deck",
+    "name": "Pectoral machine inverso",
+    "pattern": "iso-delt-rear",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "rear-delts"
+    ],
+    "secondaryMuscles": [
+      "upper-back",
+      "traps"
+    ],
+    "equipment": [
+      "machine"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "Petto appoggiato al cuscino, impugnature all'altezza delle spalle.",
+      "Apri le braccia quasi distese portando i gomiti indietro.",
+      "Pensa ad allargare, non a stringere le scapole."
+    ],
+    "images": [
+      "/images/exercises/reverse-pec-deck/0.webp",
+      "/images/exercises/reverse-pec-deck/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "dumbbell-rear-delt-fly",
+      "cable-face-pull"
+    ]
+  },
+  {
+    "id": "dumbbell-rear-delt-fly",
+    "name": "Alzate posteriori con manubri",
+    "pattern": "iso-delt-rear",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "rear-delts"
+    ],
+    "secondaryMuscles": [
+      "upper-back"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Busto piegato in avanti quasi parallelo al pavimento, o petto sulla panca inclinata.",
+      "Manubri leggeri: è l'esercizio in cui si esagera più spesso con il carico.",
+      "Apri verso i lati con i pollici che ruotano verso il basso."
+    ],
+    "images": [
+      "/images/exercises/dumbbell-rear-delt-fly/0.webp",
+      "/images/exercises/dumbbell-rear-delt-fly/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "reverse-pec-deck",
+      "cable-face-pull"
+    ]
+  },
+  {
+    "id": "cable-face-pull",
+    "name": "Face pull ai cavi",
+    "pattern": "iso-delt-rear",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "rear-delts"
+    ],
+    "secondaryMuscles": [
+      "upper-back",
+      "traps"
+    ],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Puleggia all'altezza del viso, corda impugnata con i pollici verso di te.",
+      "Tira portando le mani ai lati della testa, gomiti alti.",
+      "Apri le mani a fine tirata come se mostrassi i bicipiti."
+    ],
+    "images": [
+      "/images/exercises/cable-face-pull/0.webp",
+      "/images/exercises/cable-face-pull/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "reverse-pec-deck",
+      "dumbbell-rear-delt-fly"
+    ]
+  },
+  {
+    "id": "barbell-curl",
+    "name": "Curl con bilanciere",
+    "pattern": "iso-biceps",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": [
+      "barbell"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Gomiti fermi ai fianchi: se scappano in avanti, stai usando le spalle.",
+      "Sali fino a metà del movimento utile e fermati prima che il bilanciere si scarichi.",
+      "Scendi fino a braccia distese, senza lasciar cadere il peso.",
+      "Il busto resta immobile: niente slancio con la schiena."
+    ],
+    "images": [
+      "/images/exercises/barbell-curl/0.webp",
+      "/images/exercises/barbell-curl/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "incline-dumbbell-curl",
+      "hammer-curl"
+    ]
+  },
+  {
+    "id": "incline-dumbbell-curl",
+    "name": "Curl su panca inclinata",
+    "pattern": "iso-biceps",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": [
+      "dumbbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Schienale a 45 gradi, braccia che pendono libere dietro il corpo.",
+      "È la posizione che allunga di più il bicipite: aspettati carichi bassi.",
+      "Sali senza portare i gomiti in avanti e scendi fino a distendere del tutto."
+    ],
+    "images": [
+      "/images/exercises/incline-dumbbell-curl/0.webp",
+      "/images/exercises/incline-dumbbell-curl/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-curl",
+      "hammer-curl"
+    ]
+  },
+  {
+    "id": "hammer-curl",
+    "name": "Hammer curl",
+    "pattern": "iso-biceps",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "biceps",
+      "forearms"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "dumbbell"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Palmi rivolti l'uno verso l'altro per tutta la salita, come impugnare un martello.",
+      "Gomiti ai fianchi e fermi, spalle rilassate.",
+      "Alterna le braccia o salile insieme, purché il ritmo resti costante."
+    ],
+    "images": [
+      "/images/exercises/hammer-curl/0.webp",
+      "/images/exercises/hammer-curl/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "barbell-curl",
+      "incline-dumbbell-curl"
+    ]
+  },
+  {
+    "id": "cable-triceps-pushdown",
+    "name": "Push down ai cavi",
+    "pattern": "iso-triceps",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Gomiti incollati ai fianchi dall'inizio alla fine.",
+      "Busto leggermente inclinato in avanti e fermo lì.",
+      "Estendi fino in fondo e trattieni un istante prima di risalire."
+    ],
+    "images": [
+      "/images/exercises/cable-triceps-pushdown/0.webp",
+      "/images/exercises/cable-triceps-pushdown/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "overhead-cable-triceps-extension",
+      "lying-triceps-extension"
+    ]
+  },
+  {
+    "id": "overhead-cable-triceps-extension",
+    "name": "Estensioni sopra la testa ai cavi",
+    "pattern": "iso-triceps",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Dai le spalle alla puleggia, corda dietro la testa, un piede avanti.",
+      "Braccio sopra la testa: è la posizione che allunga di più il tricipite.",
+      "Gomiti che puntano avanti e non si aprono ai lati."
+    ],
+    "images": [
+      "/images/exercises/overhead-cable-triceps-extension/0.webp",
+      "/images/exercises/overhead-cable-triceps-extension/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "cable-triceps-pushdown",
+      "lying-triceps-extension"
+    ]
+  },
+  {
+    "id": "lying-triceps-extension",
+    "name": "French press su panca",
+    "pattern": "iso-triceps",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "equipment": [
+      "barbell",
+      "bench"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Bilanciere sagomato per essere più gentile con i polsi.",
+      "Braccia inclinate leggermente indietro, non perpendicolari al pavimento.",
+      "Scendi verso la fronte piegando solo i gomiti, che restano fermi.",
+      "Estendi senza bloccare di scatto in cima."
+    ],
+    "images": [
+      "/images/exercises/lying-triceps-extension/0.webp",
+      "/images/exercises/lying-triceps-extension/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "cable-triceps-pushdown",
+      "overhead-cable-triceps-extension"
+    ]
+  },
+  {
+    "id": "plank",
+    "name": "Plank",
+    "pattern": "core",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "obliques",
+      "lower-back"
+    ],
+    "equipment": [
+      "bodyweight"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Gomiti sotto le spalle, corpo in linea da testa a talloni.",
+      "Stringi glutei e addome: il bacino non si alza e non si abbassa.",
+      "Qui si conta il tempo, non le ripetizioni: registra i secondi tenuti.",
+      "Aggiungi un disco sulla schiena quando superi il minuto pulito."
+    ],
+    "images": [
+      "/images/exercises/plank/0.webp",
+      "/images/exercises/plank/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "hanging-leg-raise",
+      "cable-crunch",
+      "pallof-press"
+    ]
+  },
+  {
+    "id": "cable-crunch",
+    "name": "Crunch ai cavi",
+    "pattern": "core",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "obliques"
+    ],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 2.5,
+    "defaultRestSec": 90,
+    "cues": [
+      "In ginocchio sotto la puleggia alta, corda ai lati della testa.",
+      "Arrotola la schiena portando i gomiti verso le cosce.",
+      "Il bacino resta fermo: il movimento è tutto della colonna, non delle anche."
+    ],
+    "images": [
+      "/images/exercises/cable-crunch/0.webp",
+      "/images/exercises/cable-crunch/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "hanging-leg-raise",
+      "plank",
+      "pallof-press"
+    ]
+  },
+  {
+    "id": "hanging-leg-raise",
+    "name": "Sollevamento gambe alla sbarra",
+    "pattern": "core",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "obliques",
+      "forearms"
+    ],
+    "equipment": [
+      "pull-up-bar"
+    ],
+    "unilateral": false,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Appeso alla sbarra, spalle attive e corpo che non dondola.",
+      "Sali arrotolando il bacino, non solo alzando le cosce.",
+      "Scendi lentamente: la fase di ritorno è quella che conta.",
+      "Se dondoli, piega le ginocchia e riduci l'ampiezza."
+    ],
+    "images": [
+      "/images/exercises/hanging-leg-raise/0.webp",
+      "/images/exercises/hanging-leg-raise/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "cable-crunch",
+      "plank",
+      "pallof-press"
+    ]
+  },
+  {
+    "id": "pallof-press",
+    "name": "Pallof press",
+    "pattern": "core",
+    "tier": "accessory",
+    "primaryMuscles": [
+      "obliques"
+    ],
+    "secondaryMuscles": [
+      "abs"
+    ],
+    "equipment": [
+      "cable"
+    ],
+    "unilateral": true,
+    "loadIncrementKg": 1.25,
+    "defaultRestSec": 90,
+    "cues": [
+      "Di lato rispetto alla puleggia, impugnatura tenuta a due mani al petto.",
+      "Distendi le braccia in avanti: il cavo cerca di farti ruotare, tu resisti.",
+      "Il busto non si muove di un centimetro: è questo il senso dell'esercizio.",
+      "Stesso numero di ripetizioni per lato."
+    ],
+    "images": [
+      "/images/exercises/pallof-press/0.webp",
+      "/images/exercises/pallof-press/1.webp"
+    ],
+    "license": {
+      "source": "Free Exercise DB (yuhonas/free-exercise-db)",
+      "type": "Unlicense (pubblico dominio)",
+      "url": "https://github.com/yuhonas/free-exercise-db"
+    },
+    "substitutes": [
+      "plank",
+      "cable-crunch",
+      "hanging-leg-raise"
+    ]
+  }
+]

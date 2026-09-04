@@ -25,14 +25,15 @@ uscita: dopo il caricamento degli asset l'app non fa nessuna richiesta di rete.
 
 ## Stato
 
-**Fase 0 — scaffolding** (`v0.1.0`). C'è l'impalcatura: build, routing,
-database, test, CI. Non c'è ancora niente da usare in palestra. Il piano delle
-fasi è nella sezione 11 di `spec.md`.
+**Fase 1 — catalogo e asset** (`v0.2.0`). Ci sono l'impalcatura e i contenuti:
+64 esercizi con cue tecnici in italiano, 120 immagini e la mappa muscolare. Non
+c'è ancora una scheda da seguire in palestra. Il piano delle fasi è nella
+sezione 11 di `spec.md`.
 
 | Fase | Contenuto | Tag |
 | --- | --- | --- |
 | 0 | Scaffolding, schema IndexedDB, test, CI | `v0.1.0` ✅ |
-| 1 | Catalogo esercizi, immagini, mappa muscolare | `v0.2.0` |
+| 1 | Catalogo esercizi, immagini, mappa muscolare | `v0.2.0` ✅ |
 | 2 | Motore di generazione della scheda | `v0.3.0` |
 | 3 | Onboarding e Home | `v0.4.0` |
 | 4 | Sessione guidata | `v0.5.0` |
@@ -54,6 +55,20 @@ npm run dev
 | `npm test` | Test unitari (Vitest) |
 | `npm run test:e2e` | Test end-to-end (Playwright) |
 | `npm run lint` | ESLint |
+| `npm run import:exercises` | Riscarica le immagini degli esercizi (a mano, non in CI) |
+
+## Crediti degli asset
+
+Le immagini degli esercizi vengono da
+[Free Exercise DB](https://github.com/yuhonas/free-exercise-db)
+(yuhonas/free-exercise-db), rilasciato con licenza **Unlicense**, quindi di
+pubblico dominio. Sono ridimensionate a 600 px e convertite in WebP da
+`scripts/import-exercises.mjs`. Ogni esercizio del catalogo porta la propria
+licenza nel campo `license`, e un test verifica che nessuno ne sia sprovvisto.
+
+I cue tecnici e la mappa muscolare `body.svg` sono originali di questo
+repository, sotto licenza MIT. Quattro esercizi non hanno immagini perché la
+sorgente non offre una corrispondenza fedele: si usano i soli cue testuali.
 
 ## Struttura
 

@@ -1,4 +1,4 @@
-// Tempra v0.1.0 — 2026-09-04 08:24
+// Tempra v0.2.0 — 2026-09-04 09:12
 
 import js from '@eslint/js';
 import globals from 'globals';
@@ -11,9 +11,11 @@ export default [
   js.configs.recommended,
 
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,mjs}'],
     languageOptions: {
-      ecmaVersion: 2023,
+      // 'latest' e non 2023: i test del catalogo usano gli import attributes
+      // (`with { type: 'json' }`), che espree riconosce solo da ES2025.
+      ecmaVersion: 'latest',
       sourceType: 'module',
       globals: { ...globals.browser, ...globals.node },
       parserOptions: { ecmaFeatures: { jsx: true } },
@@ -40,6 +42,7 @@ export default [
     // Il service worker precachea gli asset dell'app: lì `fetch` è legittimo,
     // ed è comunque limitato all'origin dalla CSP di vercel.json.
     files: ['tests/**/*.{js,jsx}', 'scripts/**/*.mjs', '*.config.js', 'sw.js'],
+    languageOptions: { globals: { ...globals.node } },
     rules: { 'no-restricted-globals': 'off' },
   },
 ];

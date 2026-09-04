@@ -1,7 +1,7 @@
 {
   "name": "tempra",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "PWA per l'allenamento con i pesi. Tutti i dati restano sul dispositivo.",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "_": "JSON non ammette commenti: spec sezione 0 richiede di motivare ogni dipendenza fuori dalla sezione 9. Qui la motivazione.",
     "eslint + @eslint/js + eslint-plugin-react + eslint-plugin-react-hooks + globals": "La CI di sezione 10 richiede 'lint' a ogni push. Solo devDependencies, zero impatto sul bundle.",
     "fake-indexeddb": "IndexedDB non esiste in Node: serve per testare src/db/schema.js con Vitest. Solo devDependency.",
+    "sharp": "Ridimensiona a 600px e converte in WebP le immagini degli esercizi (spec 6.2). Gira solo in scripts/import-exercises.mjs, a mano, mai a runtime: non entra nel bundle.",
     "@vitejs/plugin-react": "Richiesto da Vite per il JSX di React 18 (implicito nella sezione 9)."
   },
   "scripts": {
@@ -16,6 +17,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
+    "import:exercises": "node scripts/import-exercises.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test"
@@ -34,6 +36,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "fake-indexeddb": "^6.0.1",
     "globals": "^15.15.0",
+    "sharp": "^0.34.4",
     "vite": "^5.4.20",
     "vitest": "^2.1.9"
   }

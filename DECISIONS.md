@@ -94,3 +94,77 @@ entrerà in CI in Fase 7, quando ci sarà una PWA da misurare.
 
 Nome della cartella e del repository GitHub: `Tempra`. Il campo `name` in
 `package.json` resta `tempra` minuscolo perché npm non ammette maiuscole.
+
+---
+
+## Fase 1 — Catalogo e asset
+
+### D-012 · 64 esercizi, non 60
+
+La spec chiede «~60 esercizi» con almeno 2 accessori per ogni pattern di
+isolamento. Ma la spec chiede anche che ogni esercizio abbia **almeno 2
+sostituti dello stesso pattern**: con soli 2 accessori per pattern ognuno dei
+due potrebbe averne al massimo 1. Servono quindi 3 esercizi per ogni pattern di
+isolamento. Totale: 30 multiarticolari (7 pattern × 4, più leg press e dip) +
+30 di isolamento (10 pattern × 3) + 4 core = 64.
+
+### D-013 · `src/data/taxonomy.js`, nuovo file
+
+Gli enum della sezione 2 (pattern, muscoli, tier, obiettivi, livelli) messi in
+un modulo eseguibile, non previsto dall'albero della sezione 9. Catalogo,
+motori e test devono concordare su quali valori esistono: duplicare le liste in
+tre posti è il modo più rapido per farle divergere. Contiene anche
+`SMALL_MUSCLES` e `isMultiJoint()`, che servono a `generate.js` in Fase 2.
+
+### D-014 · Tutti i pattern di isolamento e core hanno tier `accessory`
+
+Anche esercizi pesanti come l'hip thrust con bilanciere. Il `tier` non è un
+giudizio sull'importanza dell'esercizio: è il parametro con cui la sezione 3.2
+sceglie range di ripetizioni e recupero, e la 3.5 decide dove collocarlo nel
+giorno. Solo i pattern multiarticolari ricevono `main` e `secondary`. Un test
+lo verifica.
+
+### D-015 · Un muscolo non può essere primario e secondario insieme
+
+Vincolo non scritto nella spec, aggiunto come test. Il motore conta il volume
+settimanale sui soli muscoli primari (3.3): se un muscolo comparisse in
+entrambe le liste dello stesso esercizio, il conteggio lo vedrebbe due volte.
+
+### D-016 · Le ellissi della mappa muscolare
+
+`body.svg` costruisce ogni gruppo con uno o due sottotracciati ellittici dentro
+un solo `<path>`. I muscoli pari sono un elemento solo con due sottotracciati:
+gli id nel DOM devono essere univoci, e un `id` ripetuto per il lato destro e
+sinistro non sarebbe valido. La specchiatura usa `<use>` con
+`translate(2·CX,0) scale(-1,1)`.
+
+### D-017 · `sharp` come devDependency
+
+Serve a ridimensionare a 600 px e convertire in WebP (spec 6.2). Gira solo in
+`scripts/import-exercises.mjs`, lanciato a mano, mai a runtime: non entra nel
+bundle e non tocca il requisito 1.3.
+
+### D-018 · Quattro esercizi restano senza immagini
+
+`bulgarian-split-squat`, `chest-supported-t-bar-row`, `assisted-pull-up-machine`
+e `machine-lateral-raise` non hanno in Free Exercise DB una corrispondenza
+fedele: esistono voci simili, ma mostrano un movimento diverso da quello che
+l'utente sta per eseguire. La spec 6.2 prevede esattamente questo caso
+(«si pubblica con i soli cue testuali»). Meglio nessuna immagine di
+un'immagine sbagliata.
+
+### D-019 · Il campo `license` descrive gli asset, non i cue
+
+Finché un esercizio non ha immagini, `license` vale
+`{ source: 'Tempra', type: 'MIT' }`: i cue sono testo originale di questo
+repository. Quando lo script di import allega le immagini, riscrive `license`
+con Free Exercise DB / Unlicense. Un test verifica la coerenza nelle due
+direzioni: se ci sono immagini, la licenza deve citare una fonte esterna con
+URL.
+
+### D-020 · Il test sul lessico dei cue
+
+I cue non devono somigliare a indicazioni cliniche (spec 6.3). Il test cerca
+`terapia`, `riabilitazione`, `patologia`, `diagnosi`, `lesione`, `infortunio`,
+`dolore`, `medico` dentro `exercises.json`. È lo stesso principio del test 10.8
+sulle stringhe UI, applicato al catalogo.

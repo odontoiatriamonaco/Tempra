@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-labelledby="tempra-body-title" class="body-map">
+  <title id="tempra-body-title">Figura stilizzata di fronte e di spalle, con i gruppi muscolari evidenziabili</title>
+
+  <!--
+    Tempra v0.2.0 — 2026-09-04 09:12
+    Spec 6.1. Ogni gruppo muscolare dell'enum `Muscle` è un solo <path> con
+    id="m-{muscle}" e class="muscle". I muscoli pari (destro e sinistro) sono
+    due sottotracciati dentro lo stesso `d`: un elemento solo, un id solo.
+    Nessun colore qui dentro: tutto passa dalle custom properties di tokens.css.
+  -->
+
+  <style>
+    .body-map .silhouette { fill: var(--muscle-idle); }
+    .body-map .muscle {
+      fill: var(--muscle-idle);
+      stroke: var(--muscle-outline);
+      stroke-width: 1;
+      transition: fill var(--dur, 200ms) var(--ease, ease);
+    }
+  </style>
+
+  <defs>
+    <!-- Metà sinistra della figura: le altre tre metà sono specchiature. -->
+    <g id="body-half">
+      <path d="M100,56 L79,58 L61,70 C58,88 60,112 66,130 C69,140 69,148 68,158 L100,158 Z" />
+      <path d="M61,70 L46,80 C40,100 38,124 40,146 C41,162 43,174 45,184 L57,184 C56,170 55,154 54,140 C53,118 56,94 60,78 Z" />
+      <path d="M68,158 L100,158 C99,190 97,214 95,236 C94,262 93,282 92,300 L78,300 C78,282 78,262 79,236 C79,212 74,184 68,158 Z" />
+    </g>
+    <!-- Testa e collo: già simmetrici, si disegnano una volta per figura. -->
+    <g id="body-head">
+      <path d="M84,30a16,19 0 1,0 32,0a16,19 0 1,0 -32,0" />
+      <path d="M92,45 L108,45 L108,58 L92,58 Z" />
+    </g>
+  </defs>
+
+  <!-- ============================ FRONTE ============================ -->
+  <g class="silhouette" data-view="front">
+    <use href="#body-head" />
+    <use href="#body-half" />
+    <use href="#body-half" transform="translate(200,0) scale(-1,1)" />
+  </g>
+
+  <g data-view="front">
+    <path id="m-side-delts" class="muscle" d="M53,72a10,12 0 1,0 20,0a10,12 0 1,0 -20,0 M127,72a10,12 0 1,0 20,0a10,12 0 1,0 -20,0" />
+    <path id="m-front-delts" class="muscle" d="M68,73a9,11 0 1,0 18,0a9,11 0 1,0 -18,0 M114,73a9,11 0 1,0 18,0a9,11 0 1,0 -18,0" />
+    <path id="m-chest" class="muscle" d="M73,90a13,12 0 1,0 26,0a13,12 0 1,0 -26,0 M101,90a13,12 0 1,0 26,0a13,12 0 1,0 -26,0" />
+    <path id="m-biceps" class="muscle" d="M44,106a8,20 0 1,0 16,0a8,20 0 1,0 -16,0 M140,106a8,20 0 1,0 16,0a8,20 0 1,0 -16,0" />
+    <path id="m-forearms" class="muscle" d="M39,152a7,22 0 1,0 14,0a7,22 0 1,0 -14,0 M147,152a7,22 0 1,0 14,0a7,22 0 1,0 -14,0" />
+    <path id="m-abs" class="muscle" d="M88,124a12,28 0 1,0 24,0a12,28 0 1,0 -24,0" />
+    <path id="m-obliques" class="muscle" d="M77,130a6,20 0 1,0 12,0a6,20 0 1,0 -12,0 M111,130a6,20 0 1,0 12,0a6,20 0 1,0 -12,0" />
+    <path id="m-quads" class="muscle" d="M73,196a12,34 0 1,0 24,0a12,34 0 1,0 -24,0 M103,196a12,34 0 1,0 24,0a12,34 0 1,0 -24,0" />
+  </g>
+
+  <!-- ============================= RETRO ============================= -->
+  <g class="silhouette" data-view="back">
+    <use href="#body-head" transform="translate(200,0)" />
+    <use href="#body-half" transform="translate(200,0)" />
+    <!-- Specchiatura attorno a x=300: x' = 400 - x. -->
+    <use href="#body-half" transform="translate(400,0) scale(-1,1)" />
+  </g>
+
+  <g data-view="back">
+    <path id="m-traps" class="muscle" d="M278,72a11,14 0 1,0 22,0a11,14 0 1,0 -22,0 M300,72a11,14 0 1,0 22,0a11,14 0 1,0 -22,0" />
+    <path id="m-rear-delts" class="muscle" d="M253,74a10,11 0 1,0 20,0a10,11 0 1,0 -20,0 M327,74a10,11 0 1,0 20,0a10,11 0 1,0 -20,0" />
+    <path id="m-upper-back" class="muscle" d="M275,102a12,13 0 1,0 24,0a12,13 0 1,0 -24,0 M301,102a12,13 0 1,0 24,0a12,13 0 1,0 -24,0" />
+    <path id="m-lats" class="muscle" d="M267,126a14,22 0 1,0 28,0a14,22 0 1,0 -28,0 M305,126a14,22 0 1,0 28,0a14,22 0 1,0 -28,0" />
+    <path id="m-lower-back" class="muscle" d="M287,150a13,13 0 1,0 26,0a13,13 0 1,0 -26,0" />
+    <path id="m-triceps" class="muscle" d="M244,106a8,21 0 1,0 16,0a8,21 0 1,0 -16,0 M340,106a8,21 0 1,0 16,0a8,21 0 1,0 -16,0" />
+    <path id="m-glutes" class="muscle" d="M274,176a14,16 0 1,0 28,0a14,16 0 1,0 -28,0 M298,176a14,16 0 1,0 28,0a14,16 0 1,0 -28,0" />
+    <path id="m-hamstrings" class="muscle" d="M274,214a11,28 0 1,0 22,0a11,28 0 1,0 -22,0 M304,214a11,28 0 1,0 22,0a11,28 0 1,0 -22,0" />
+    <path id="m-calves" class="muscle" d="M278,266a8,24 0 1,0 16,0a8,24 0 1,0 -16,0 M306,266a8,24 0 1,0 16,0a8,24 0 1,0 -16,0" />
+  </g>
+</svg>
