@@ -1,4 +1,4 @@
-<!-- Tempra v0.1.0 — 2026-09-04 08:24 -->
+<!-- Tempra v0.4.0 — 2026-09-04 11:30 -->
 
 # Decisioni di implementazione
 
@@ -298,3 +298,46 @@ continua a dire il vero, senza punire per un arrotondamento.
 rende irraggiungibile, il secondo la toglie davvero dal bundle: con l'import
 statico la build passava da 153 a 204 kB, perché si portava dietro il catalogo
 esercizi. Così la guardia sul disclaimer resta senza eccezioni in produzione.
+
+---
+
+## Fase 3 — Onboarding e Home
+
+### D-033 · Ogni scelta dell'onboarding avanza da sola
+
+Nessun pulsante "Avanti" dopo le domande: si tocca la risposta e si passa alla
+successiva. Quattro tap per le domande più uno per generare, cinque in tutto,
+contro gli otto concessi dal criterio 7.3. Il pulsante "Indietro" resta, perché
+senza non si potrebbe correggere una risposta.
+
+### D-034 · `src/engine/schedule.js`, nuovo modulo
+
+La Home deve sapere tre cose che nessun modulo esistente calcola: in quale
+settimana siamo, quale giorno proporre, e quante serie sono già state fatte per
+gruppo muscolare. La regola è quella di 4.4 — il calendario avanza per sedute
+completate, non per date — ed è logica pura, quindi sta in `engine/` e non in un
+componente. `week.js` resta la periodizzazione, `schedule.js` è l'avanzamento.
+
+### D-035 · Gli id dell'SVG sono resi univoci per istanza
+
+`MuscleMap` riscrive gli id di `body.svg` con un prefisso preso da `useId()`.
+In Fase 4 la stessa pagina conterrà una mappa per esercizio, e diciassette
+`id="m-chest"` nello stesso documento romperebbero sia i riferimenti `<use>`
+sia l'accessibilità. Un test end-to-end verifica che il conteggio degli id
+duplicati sia zero.
+
+### D-036 · L'SVG è iniettato inline, non caricato come immagine
+
+`body.svg` arriva con `?raw` e finisce in `dangerouslySetInnerHTML`. Un `<img>`
+non eredita le custom properties del tema, quindi la mappa resterebbe grigia in
+entrambi i temi e la colorazione per gruppo sarebbe impossibile. Il contenuto è
+un file del repository, non un input esterno: non c'è superficie di iniezione.
+
+### D-037 · A mesociclo chiuso non c'è un giorno successivo
+
+`getScheduleState` restava sull'ultima settimana ma segnava tutti i giorni come
+da fare, e riproponeva il giorno 1 all'infinito. A mesociclo finito i giorni
+sono tutti fatti e `nextDayIndex` è `null`: quello che serve non è un'altra
+seduta, è il nuovo mesociclo di 3.6. Trovato da un test, non a occhio.
+
+---

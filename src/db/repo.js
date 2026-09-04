@@ -1,4 +1,4 @@
-// Tempra v0.1.0 — 2026-09-04 08:24
+// Tempra v0.4.0 — 2026-09-04 11:30
 //
 // CRUD sugli store di IndexedDB. I tipi sono documentati in JSDoc secondo la
 // sezione 2 della spec. Nessuna logica di dominio qui: il repository legge e

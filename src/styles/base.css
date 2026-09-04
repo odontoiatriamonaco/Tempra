@@ -1,4 +1,4 @@
-/* Tempra v0.3.0 — 2026-09-04 10:40 */
+/* Tempra v0.4.0 — 2026-09-04 11:30 */
 
 @import './tokens.css';
 
@@ -163,6 +163,311 @@ a {
 .num {
   font-family: var(--font-num);
   font-variant-numeric: tabular-nums;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.warning {
+  background: var(--accent-surface);
+  border-left: 3px solid var(--warn);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+/* ---- Pulsanti ---- */
+
+.button {
+  min-height: var(--tap-min);
+  width: 100%;
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  border: 1px solid transparent;
+  transition:
+    background var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+
+.button--primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.button--primary:disabled {
+  background: var(--surface-sunken);
+  color: var(--text-faint);
+  cursor: not-allowed;
+}
+
+.button--ghost {
+  border-color: var(--border-strong);
+  color: var(--text-muted);
+}
+
+.button--ghost:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+/* ---- Onboarding ---- */
+
+.onboarding__progress {
+  display: flex;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+.onboarding__dot,
+.weekdots__dot {
+  height: 4px;
+  flex: 1;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.onboarding__dot[data-state='done'],
+.weekdots__dot[data-state='done'] {
+  background: var(--muscle-secondary);
+}
+
+.onboarding__dot[data-state='current'],
+.weekdots__dot[data-state='current'] {
+  background: var(--accent);
+}
+
+.disclaimer__scroll {
+  max-height: 48vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overscroll-behavior: contain;
+}
+
+.disclaimer__hint {
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+/* ---- Scelte a card ---- */
+
+.choice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.choice--compact {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.choice__option {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-height: var(--tap-min);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.choice--compact .choice__option {
+  flex: 1 1 4rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.choice__option:hover {
+  border-color: var(--border-strong);
+}
+
+.choice__option[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-surface);
+}
+
+.choice__title {
+  font-weight: var(--weight-medium);
+}
+
+.choice__detail {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ---- Anteprima della scheda ---- */
+
+.preview {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2) var(--space-3);
+  align-items: baseline;
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-sm);
+}
+
+.preview__row:last-child {
+  border-bottom: none;
+}
+
+.preview__tier {
+  grid-column: 1 / -1;
+  font-size: var(--text-xs);
+}
+
+/* ---- Settimane e giorni ---- */
+
+.weekdots {
+  display: flex;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+.daylist {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.daylist__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: var(--space-3);
+  background: var(--surface-sunken);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+}
+
+.daylist__item[aria-pressed='true'] {
+  border-color: var(--accent);
+}
+
+.daylist__done {
+  color: var(--ok);
+  font-size: var(--text-sm);
+}
+
+/* ---- Bottom sheet ---- */
+
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.45);
+  border: none;
+}
+
+.sheet__panel {
+  position: relative;
+  width: 100%;
+  max-width: var(--content-max);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-4);
+  padding-bottom: calc(var(--space-4) + var(--safe-bottom));
+  max-height: 80dvh;
+  overflow-y: auto;
+}
+
+.sheet__grip {
+  width: 2.5rem;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border-strong);
+  margin-inline: auto;
+}
+
+.sheet__title {
+  font-size: var(--text-lg);
+}
+
+/* ---- Mappa muscolare ---- */
+
+.muscle-map svg {
+  width: 100%;
+  height: auto;
+}
+
+.muscle-map .muscle[data-role='primary'] {
+  fill: var(--muscle-primary);
+}
+
+.muscle-map .muscle[data-role='secondary'] {
+  fill: var(--muscle-secondary);
+}
+
+.muscle-map .muscle[data-heat='0'] {
+  fill: var(--heat-0);
+}
+
+.muscle-map .muscle[data-heat='1'] {
+  fill: var(--heat-1);
+}
+
+.muscle-map .muscle[data-heat='2'] {
+  fill: var(--heat-2);
+}
+
+.muscle-map .muscle[data-heat='3'] {
+  fill: var(--heat-3);
+}
+
+.heatlegend {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
 }
 
 /* ---- Pagina di debug del motore (solo in sviluppo) ---- */

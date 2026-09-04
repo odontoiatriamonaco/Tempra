@@ -1,4 +1,4 @@
-// Tempra v0.1.0 — 2026-09-04 08:24
+// Tempra v0.4.0 — 2026-09-04 11:30
 //
 // Tutte le stringhe dell'interfaccia, in italiano. Nessun testo visibile
 // all'utente va scritto dentro i componenti.
@@ -21,6 +21,27 @@ export const DISCLAIMER = Object.freeze({
   /** Versione di una riga, in fondo alla schermata di sessione (spec 1.4). */
   short:
     'Tempra propone schemi generici e non valuta il tuo stato di salute. Ti alleni sotto la tua responsabilità.',
+});
+
+/** Nomi dei gruppi muscolari, per la mappa e il catalogo. */
+export const MUSCLE_LABELS = Object.freeze({
+  chest: 'Petto',
+  'front-delts': 'Deltoidi anteriori',
+  'side-delts': 'Deltoidi laterali',
+  'rear-delts': 'Deltoidi posteriori',
+  lats: 'Dorsali',
+  'upper-back': 'Alto schiena',
+  'lower-back': 'Lombari',
+  traps: 'Trapezi',
+  biceps: 'Bicipiti',
+  triceps: 'Tricipiti',
+  forearms: 'Avambracci',
+  quads: 'Quadricipiti',
+  hamstrings: 'Femorali',
+  glutes: 'Glutei',
+  calves: 'Polpacci',
+  abs: 'Addome',
+  obliques: 'Obliqui',
 });
 
 /** Tutto il resto dell'interfaccia. */
@@ -49,23 +70,70 @@ export const UI_STRINGS = Object.freeze({
     edit: 'Modifica',
     notFound: 'Non abbiamo trovato questa pagina.',
     goHome: 'Torna alla schermata iniziale',
+    minutes: 'min',
+    sets: 'serie',
   }),
 
   onboarding: Object.freeze({
+    step: 'Passo',
     goalQuestion: 'Che obiettivo hai in mente?',
+    goals: Object.freeze({
+      strength: {
+        title: 'Forza',
+        detail: 'Carichi alti e poche ripetizioni, recuperi lunghi.',
+      },
+      hypertrophy: {
+        title: 'Massa',
+        detail: 'Ripetizioni medie e più serie, per far crescere i muscoli.',
+      },
+      recomp: {
+        title: 'Ricomposizione',
+        detail: 'Più lavoro in meno tempo, recuperi brevi.',
+      },
+    }),
+
     daysQuestion: 'Quanti giorni a settimana puoi allenarti?',
+    daysDetail: 'Conta solo i giorni in cui sai di poterci andare davvero.',
+
     minutesQuestion: 'Quanto dura una seduta?',
+    minutesDetail: 'Tempo in palestra, riscaldamento compreso.',
+
     levelQuestion: 'Da quanto ti alleni con i pesi?',
+    levels: Object.freeze({
+      beginner: { title: 'Principiante', detail: 'Meno di un anno continuativo' },
+      intermediate: { title: 'Intermedio', detail: 'Da uno a tre anni' },
+      advanced: { title: 'Avanzato', detail: 'Più di tre anni' },
+    }),
+
     summaryTitle: 'La scheda suggerita',
+    summarySplit: 'Struttura',
+    summaryVolume: 'Volume settimanale',
     generate: 'Genera scheda',
+    regenerate: 'Prova un’altra combinazione',
+    exercisesPreview: 'esercizi',
   }),
 
   home: Object.freeze({
+    greeting: 'Oggi',
     nextSession: 'La prossima seduta',
     start: 'Inizia',
     changeDay: 'Cambia giorno',
+    chooseDay: 'Scegli il giorno',
+    done: 'Fatto',
+    todo: 'Da fare',
+    sessionsDone: 'sedute completate',
     weekLabel: 'Settimana',
+    weekOf: 'di',
+    deloadWeek: 'Settimana di scarico',
+    targetRir: 'RIR target',
     estimatedDuration: 'Durata stimata',
+    heatmapTitle: 'Come stai coprendo i muscoli',
+    heatmapEmpty: 'Nessuna serie registrata questa settimana.',
+    heatmapOf: 'di',
+    notesTitle: 'Dalla scorsa volta',
+    alreadyDoneWarning:
+      'Questo giorno è già completato questa settimana. Verrà registrato come seduta extra e non conterà per la progressione.',
+    allDone: 'Hai completato tutti i giorni di questa settimana. Puoi ripeterne uno come seduta extra.',
   }),
 
   session: Object.freeze({
@@ -87,8 +155,15 @@ export const UI_STRINGS = Object.freeze({
     license: 'Licenza',
   }),
 
-  /** Segnaposto usati in Fase 0 finché le schermate non esistono davvero. */
+  /** Segnaposto usati finché le schermate non esistono davvero. */
   placeholder: Object.freeze({
     comingSoon: 'Questa schermata arriva in una fase successiva.',
   }),
+});
+
+/** Etichette dei tier, per l'anteprima della scheda. */
+export const TIER_LABELS = Object.freeze({
+  main: 'Fondamentale',
+  secondary: 'Complementare',
+  accessory: 'Accessorio',
 });

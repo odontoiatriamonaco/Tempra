@@ -1,11 +1,11 @@
-// Tempra v0.3.0 — 2026-09-04 10:40
+// Tempra v0.4.0 — 2026-09-04 11:30
 //
 // Guscio dell'app: routing hash e guardia sul disclaimer.
 // Finché `disclaimerAcceptedAt` non è valorizzato, l'unica rotta raggiungibile
 // è l'onboarding (spec 1.3 e criterio 7.3).
 
 import { Suspense, lazy, useEffect, useState } from 'react';
-import { ROUTES, useHashRoute } from './ui/hooks/useHashRoute.js';
+import { navigate, ROUTES, useHashRoute } from './ui/hooks/useHashRoute.js';
 import { hasAcceptedDisclaimer } from './db/repo.js';
 import { UI_STRINGS } from './data/strings.it.js';
 
@@ -83,7 +83,12 @@ export default function App() {
     return (
       <div className="app" data-route={ROUTES.ONBOARDING}>
         <main className="app__main">
-          <Onboarding onAccepted={() => setAccepted(true)} />
+          <Onboarding
+            onDone={async () => {
+              setAccepted(true);
+              navigate(ROUTES.HOME);
+            }}
+          />
         </main>
       </div>
     );
