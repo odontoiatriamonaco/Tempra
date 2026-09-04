@@ -268,6 +268,18 @@ Stessa logica nella rotazione degli esercizi: un candidato respinto dal tetto di
 volume **non** consuma il turno. Prima lo consumava, e bastava una pescata
 sfortunata perché un giorno perdesse tutti i suoi secondary.
 
+### D-031 · Una serie di tolleranza nel decidere la degradazione
+
+`meetsMinimumVolume` accetta uno scarto di una serie rispetto al minimo del
+range. Senza, con 5 giorni da 60 minuti il livello scendeva a principiante
+perché quadricipiti e femorali si fermavano a 11 serie contro un minimo di 12:
+un solo set di differenza che capovolgeva il giudizio sull'utente.
+
+Con la tolleranza restano intermedie le configurazioni comuni — 5×60, 4×75,
+5×75, 6×60 — mentre 4×60 e 3×60 degradano ancora, e a ragione: lì i giorni
+sono già pieni al 97 % e il petto si ferma a 8 serie contro 12. La degradazione
+continua a dire il vero, senza punire per un arrotondamento.
+
 ### D-030 · La pagina di debug non esiste in produzione
 
 È dietro `import.meta.env.DEV` **e** dietro un import dinamico. Il primo la

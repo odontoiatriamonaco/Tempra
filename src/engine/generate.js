@@ -555,13 +555,23 @@ export function buildProgramForLevel(params, catalog, seed, level) {
 }
 
 /**
+ * Serie di scarto tollerate nel decidere se un livello è sostenibile. Una
+ * serie in meno su un gruppo non cambia il livello di allenamento di nessuno:
+ * senza questa tolleranza, chi si allena cinque giorni si sentirebbe dire che
+ * ha un volume da principiante per un solo set di differenza.
+ */
+const MINIMUM_VOLUME_TOLERANCE = 1;
+
+/**
  * Il livello è sostenibile se ogni gruppo grande arriva almeno al minimo del
- * suo range. Se non ci arriva, non è colpa del programma: è il tempo che non
- * basta, e il livello va degradato (spec 3.3).
+ * suo range, a meno della tolleranza. Se non ci arriva, non è colpa del
+ * programma: è il tempo che non basta, e il livello va degradato (spec 3.3).
  */
 function meetsMinimumVolume(volume, level) {
   return LARGE_MUSCLES.every(
-    (muscle) => (volume[muscle] ?? 0) >= volumeTargetFor(muscle, level).min
+    (muscle) =>
+      (volume[muscle] ?? 0) >=
+      volumeTargetFor(muscle, level).min - MINIMUM_VOLUME_TOLERANCE
   );
 }
 
