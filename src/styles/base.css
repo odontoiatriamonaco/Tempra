@@ -1,4 +1,4 @@
-/* Tempra v0.4.0 — 2026-09-04 11:30 */
+/* Tempra v0.5.0 — 2026-09-04 12:10 */
 
 @import './tokens.css';
 
@@ -468,6 +468,322 @@ a {
   flex-direction: column;
   gap: var(--space-1);
   font-size: var(--text-sm);
+}
+
+/* ---- Sessione ---- */
+
+.session {
+  padding-bottom: 5rem; /* spazio per l'overlay del timer */
+}
+
+.exercise {
+  padding: 0;
+  overflow: hidden;
+}
+
+.exercise__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-1) var(--space-3);
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+}
+
+.exercise__name {
+  font-weight: var(--weight-medium);
+}
+
+.exercise__status {
+  grid-column: 1 / -1;
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+}
+
+.exercise__status[data-status='doing'] {
+  color: var(--warn);
+}
+
+.exercise__status[data-status='done'] {
+  color: var(--ok);
+}
+
+.exercise[data-status='done'] .exercise__name {
+  color: var(--text-muted);
+}
+
+.exercise__body {
+  padding: 0 var(--space-4) var(--space-4);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+}
+
+.exercise__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+
+.exercise__images img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  background: var(--surface-sunken);
+}
+
+.cues {
+  margin: 0;
+  padding-left: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.muscle-map--small svg {
+  max-width: 14rem;
+  margin-inline: auto;
+}
+
+.lasttime {
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-sunken);
+  border-radius: var(--radius-sm);
+}
+
+.lasttime__label {
+  font-family: var(--font-sans);
+}
+
+.note {
+  width: 100%;
+  text-align: left;
+  padding: var(--space-3);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  min-height: var(--tap-min);
+}
+
+.note--editing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-style: solid;
+}
+
+.note textarea {
+  width: 100%;
+  resize: vertical;
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-sunken);
+  color: var(--text);
+  font-family: inherit;
+}
+
+/* ---- Righe delle serie ---- */
+
+.sets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.setrow {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr auto;
+  align-items: end;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-3);
+  background: var(--surface-sunken);
+  border-radius: var(--radius);
+}
+
+.setrow[data-warmup='true'] {
+  opacity: 0.85;
+  border-left: 3px solid var(--border-strong);
+}
+
+.setrow[data-done='true'] {
+  border-left: 3px solid var(--ok);
+}
+
+.setrow__label {
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  align-self: center;
+}
+
+.setrow__done {
+  align-self: center;
+  color: var(--ok);
+  font-size: var(--text-sm);
+}
+
+.setrow__check {
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-size: var(--text-lg);
+}
+
+.stepper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.stepper__label {
+  font-size: var(--text-xs);
+}
+
+.stepper__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.stepper__button {
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  font-size: var(--text-lg);
+  line-height: 1;
+}
+
+.stepper__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.stepper__value {
+  flex: 1;
+  text-align: center;
+  font-size: var(--text-base);
+}
+
+.stepper__value--tappable {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.stepper__unit {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-left: 1px;
+}
+
+.rir {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.rir__label {
+  font-size: var(--text-xs);
+}
+
+.rir__options {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.rir__button {
+  flex: 1;
+  min-height: var(--tap-min);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  font-size: var(--text-sm);
+}
+
+.rir__button--num {
+  font-size: var(--text-base);
+}
+
+.rir__button:hover {
+  border-color: var(--accent);
+  background: var(--accent-surface);
+}
+
+/* ---- Timer di recupero ---- */
+
+.resttimer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  padding-bottom: var(--safe-bottom);
+}
+
+.resttimer[data-done='true'] {
+  background: var(--accent-surface);
+}
+
+.resttimer__progress {
+  height: 3px;
+  background: var(--accent);
+  transform-origin: left;
+  transition: transform 250ms linear;
+}
+
+.resttimer__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: var(--space-2) var(--space-4);
+}
+
+.resttimer__value {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+}
+
+.resttimer__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.resttimer__button {
+  min-height: var(--tap-min);
+  min-width: 3rem;
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  font-size: var(--text-sm);
+}
+
+/* ---- Calcolatore dischi ---- */
+
+.plates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.plates__total {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+}
+
+.plates__text {
+  font-size: var(--text-lg);
 }
 
 /* ---- Pagina di debug del motore (solo in sviluppo) ---- */

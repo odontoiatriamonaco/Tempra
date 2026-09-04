@@ -1,4 +1,4 @@
-<!-- Tempra v0.4.0 — 2026-09-04 11:30 -->
+<!-- Tempra v0.5.0 — 2026-09-04 12:10 -->
 
 # Decisioni di implementazione
 
@@ -341,3 +341,57 @@ sono tutti fatti e `nextDayIndex` è `null`: quello che serve non è un'altra
 seduta, è il nuovo mesociclo di 3.6. Trovato da un test, non a occhio.
 
 ---
+
+
+---
+
+## Fase 4 — Sessione guidata
+
+### D-038 · Conti dei dischi in centesimi di chilo, con interi
+
+`plates.js` non fa aritmetica con i float. Con 31,25 kg per lato, `25 + 5 + 1,25`
+lascia un residuo di 1e-15 e il disco più piccolo sparisce: il calcolatore
+direbbe "non componibile" su un peso perfettamente caricabile. Tutto passa per
+interi in centesimi di chilo. Un test lo verifica su ogni peso da 20 a 200 kg.
+
+### D-039 · Serie di avvicinamento solo per i main
+
+La spec 7.1 dice «serie di avvicinamento proposte automaticamente per i main»,
+mentre il budget tempo di 3.4 ne conta una anche per ogni secondary. Vince 7.1,
+che è la regola sull'interfaccia: la stima dei tempi resta quindi leggermente
+conservativa, cioè le sedute finiscono un minuto prima del previsto. Meglio
+così che il contrario.
+
+Gli avvicinamenti spariscono se l'arrotondamento li fa coincidere con il carico
+di lavoro: a bilanciere quasi scarico, il 50 % e il 75 % di 20 kg sono ancora
+20 kg, e non sarebbero un avvicinamento ma due serie in più.
+
+### D-040 · Il timer non chiede il RIR sull'avvicinamento
+
+Le serie di avvicinamento vengono registrate con `isWarmup: true` e RIR 4, senza
+chiederlo: non sono serie di lavoro, non contano per il volume né per la
+progressione. Chiedere «quante ne avevi ancora» dopo una serie al 50 % sarebbe
+una domanda senza risposta utile.
+
+### D-041 · `session.substitutions`, campo in più
+
+La sostituzione di un esercizio deve sopravvivere alla chiusura del browser, e
+prima che sia registrata una sola serie non c'è nessun `SetLog` da cui
+dedurla. Il campo è una mappa `slotId → exerciseId` dentro la `Session`. La
+regola 4.5 (il motore ignora la sessione per quello slot) si applicherà in
+Fase 5 leggendo questo campo.
+
+### D-042 · La seduta diventa `completed` solo dopo il feedback
+
+"Termina sessione" scrive `endedAt` ma lascia lo stato `in-progress`; è il
+salvataggio delle tre risposte a chiudere la seduta. Le domande sono
+obbligatorie (7.1) e il feedback governa l'autoregolazione di 4.3: una seduta
+completata senza feedback lascerebbe il motore senza input. Chi abbandona alla
+schermata delle domande ritrova la seduta aperta e può riprenderla.
+
+### D-043 · Nessuna nota del motore in fondo alla sessione
+
+La spec 7.1 prevede, dopo il riepilogo, «le `notes` del motore per la prossima
+volta». Le note nascono da `applySession`, che è Fase 5: al momento non
+esistono. Al loro posto c'è una riga che dice cosa arriverà. Lo stesso vale per
+il blocco "ultime note del motore" sulla Home.

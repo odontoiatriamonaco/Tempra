@@ -1,4 +1,4 @@
-<!-- Tempra v0.4.0 — 2026-09-04 11:30 -->
+<!-- Tempra v0.5.0 — 2026-09-04 12:10 -->
 
 # Tempra
 
@@ -25,10 +25,10 @@ uscita: dopo il caricamento degli asset l'app non fa nessuna richiesta di rete.
 
 ## Stato
 
-**Fase 3 — onboarding e Home** (`v0.4.0`). L’app si apre e si usa: disclaimer,
-quattro domande, generazione della scheda, e la schermata di oggi con la
-prossima seduta e la mappa muscolare. Manca la sessione guidata, che è la Fase
-4. Il piano delle fasi è nella sezione 11 di `spec.md`.
+**Fase 4 — sessione guidata** (`v0.5.0`). L’app si può portare in palestra:
+serie, RIR, timer di recupero, calcolatore dischi, sostituzione esercizio e
+feedback di fine seduta. Manca il motore che adatta i carichi alla volta dopo,
+che è la Fase 5. Il piano delle fasi è nella sezione 11 di `spec.md`.
 
 | Fase | Contenuto | Tag |
 | --- | --- | --- |
@@ -36,7 +36,7 @@ prossima seduta e la mappa muscolare. Manca la sessione guidata, che è la Fase
 | 1 | Catalogo esercizi, immagini, mappa muscolare | `v0.2.0` ✅ |
 | 2 | Motore di generazione della scheda | `v0.3.0` ✅ |
 | 3 | Onboarding e Home | `v0.4.0` ✅ |
-| 4 | Sessione guidata | `v0.5.0` |
+| 4 | Sessione guidata | `v0.5.0` ✅ |
 | 5 | Progressione e modalità "poco tempo" | `v0.6.0` |
 | 6 | Progressi, catalogo, impostazioni | `v0.7.0` |
 | 7 | PWA, service worker, rilascio | `v1.0.0` |

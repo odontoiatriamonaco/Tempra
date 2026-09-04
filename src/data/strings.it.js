@@ -1,4 +1,4 @@
-// Tempra v0.4.0 — 2026-09-04 11:30
+// Tempra v0.5.0 — 2026-09-04 12:10
 //
 // Tutte le stringhe dell'interfaccia, in italiano. Nessun testo visibile
 // all'utente va scritto dentro i componenti.
@@ -139,9 +139,84 @@ export const UI_STRINGS = Object.freeze({
   session: Object.freeze({
     shortOnTime: 'Ho poco tempo',
     endSession: 'Termina sessione',
+    confirmEndTitle: 'Chiudere qui?',
+    confirmEndBody:
+      'Restano {n} esercizi non completati. Puoi chiudere lo stesso: conta quello che hai fatto.',
+    confirmEnd: 'Chiudi la seduta',
+
     substitute: 'Sostituisci',
-    firstTimeHint:
-      'Prima volta: scegli un peso che sai gestire per il numero di ripetizioni indicato.',
+    substituteTitle: 'Con quale esercizio?',
+
+    statusTodo: 'Da fare',
+    statusDoing: 'In corso',
+    statusDone: 'Fatto',
+
+    weight: 'Peso',
+    reps: 'Ripetizioni',
+    setShort: 'Serie ',
+    warmupShort: 'Avvic.',
+    completeSet: 'Registra la serie',
+    completed: 'Serie registrata',
+
+    rirQuestion: 'Quante ne avevi ancora?',
+    rirWords: Object.freeze({
+      easy: 'Facile',
+      right: 'Giusta',
+      limit: 'Al limite',
+    }),
+
+    lastTime: 'Ultima volta:',
+    firstTime: 'Prima volta: scegli un peso che sai gestire per',
+
+    imageStart: 'posizione iniziale',
+    imageEnd: 'posizione finale',
+
+    addNote: 'Aggiungi una nota per questo esercizio',
+    noteLabel: 'Nota personale (altezza sedile, fermi, impugnatura…)',
+    notePlaceholder: 'Sedile al foro 4, fermi larghi',
+  }),
+
+  timer: Object.freeze({
+    ready: 'Vai',
+    skip: 'Salta',
+  }),
+
+  plates: Object.freeze({
+    title: 'Come caricare il bilanciere',
+    perSide: 'Per lato:',
+    emptyBar: 'Bilanciere scarico.',
+    belowBar: 'Meno di un bilanciere scarico: usa i manubri.',
+    notComposable: 'Non componibile con i dischi in palestra: arrotonda a',
+    or: 'o',
+  }),
+
+  feedback: Object.freeze({
+    title: 'Com’è andata?',
+    difficulty: 'Com’è andata la seduta?',
+    difficultyLabels: Object.freeze({
+      easy: 'Facile',
+      right: 'Giusta',
+      hard: 'Dura',
+    }),
+    energy: 'Energia oggi?',
+    energyLabels: Object.freeze({
+      low: 'Poca',
+      normal: 'Normale',
+      high: 'Tanta',
+    }),
+    soreness: 'Indolenzimento dalla scorsa?',
+    sorenessLabels: Object.freeze({
+      none: 'Nessuno',
+      some: 'Un po’',
+      'a-lot': 'Parecchio',
+    }),
+    confirm: 'Salva e chiudi',
+    summaryTitle: 'Seduta chiusa',
+    workSets: 'Serie di lavoro',
+    tonnage: 'Tonnellaggio',
+    duration: 'Durata',
+    notesComingSoon:
+      'Da qui il motore calcolerà i carichi della prossima volta: arriva nella fase successiva.',
   }),
 
   settings: Object.freeze({
