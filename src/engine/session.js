@@ -1,4 +1,4 @@
-// Tempra v0.5.0 — 2026-09-04 12:10
+// Tempra v0.6.0 — 2026-09-04 13:00
 //
 // Logica pura della sessione: come si compone l'elenco delle serie, come si
 // legge la volta precedente, come si riassume la seduta. Niente React, niente
@@ -157,6 +157,27 @@ export function sessionSummary(session) {
     warmupSets: logs.length - work.length,
     tonnageKg: Math.round(tonnageKg),
     durationMin,
+  };
+}
+
+/**
+ * Applica al giorno l'aggiustamento una tantum lasciato dal feedback della
+ * volta precedente (spec 4.3, prima e terza riga): una serie in meno su ogni
+ * accessorio. Non tocca il programma — vale solo per questa seduta.
+ *
+ * @param {object} dayPlan
+ * @param {{ accessorySetDelta?: number } | undefined} adjustment
+ * @returns {object} copia del giorno
+ */
+export function applyPendingAdjustment(dayPlan, adjustment) {
+  if (!adjustment?.accessorySetDelta) return dayPlan;
+  return {
+    ...dayPlan,
+    slots: dayPlan.slots.map((slot) =>
+      slot.tier === 'accessory'
+        ? { ...slot, sets: Math.max(1, slot.sets + adjustment.accessorySetDelta) }
+        : slot
+    ),
   };
 }
 

@@ -1,4 +1,4 @@
-// Tempra v0.5.0 — 2026-09-04 12:10
+// Tempra v0.6.0 — 2026-09-04 13:00
 //
 // Tutte le stringhe dell'interfaccia, in italiano. Nessun testo visibile
 // all'utente va scritto dentro i componenti.
@@ -138,6 +138,9 @@ export const UI_STRINGS = Object.freeze({
 
   session: Object.freeze({
     shortOnTime: 'Ho poco tempo',
+    shortOnTimeQuestion: 'Quanti minuti hai oggi?',
+    reducedTo: 'Seduta ridotta a {n} minuti.',
+    reducedOver: 'con i fondamentali non si scende sotto questa durata',
     endSession: 'Termina sessione',
     confirmEndTitle: 'Chiudere qui?',
     confirmEndBody:
@@ -215,8 +218,8 @@ export const UI_STRINGS = Object.freeze({
     workSets: 'Serie di lavoro',
     tonnage: 'Tonnellaggio',
     duration: 'Durata',
-    notesComingSoon:
-      'Da qui il motore calcolerà i carichi della prossima volta: arriva nella fase successiva.',
+    notesTitle: 'Per la prossima volta',
+    noNotes: 'Niente da cambiare per la prossima volta.',
   }),
 
   settings: Object.freeze({

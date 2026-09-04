@@ -1,4 +1,4 @@
-// Tempra v0.4.0 — 2026-09-04 11:30
+// Tempra v0.6.0 — 2026-09-04 13:00
 //
 // La schermata che si apre in palestra (spec 7.1): la prossima seduta, il
 // punto del mesociclo, la mappa di calore della settimana, le ultime note del
@@ -69,6 +69,8 @@ export default function Home() {
           </button>
         </div>
       )}
+
+      <EngineNotes sessions={sessions} />
 
       <Heatmap entries={heatmap} />
 
@@ -172,6 +174,29 @@ function NextSession({ day, byId, alreadyDone, onChangeDay }) {
       <button type="button" className="button button--ghost" onClick={onChangeDay}>
         {UI_STRINGS.home.changeDay}
       </button>
+    </div>
+  );
+}
+
+/** Le ultime note del motore, al massimo tre (spec 7.1). */
+function EngineNotes({ sessions }) {
+  const notes = useMemo(() => {
+    const last = [...sessions]
+      .filter((session) => session.status === 'completed')
+      .sort((a, b) => b.startedAt.localeCompare(a.startedAt))[0];
+    return (last?.engineNotes ?? []).slice(0, 3);
+  }, [sessions]);
+
+  if (notes.length === 0) return null;
+
+  return (
+    <div className="card stack">
+      <h2>{UI_STRINGS.home.notesTitle}</h2>
+      <ul className="notes">
+        {notes.map((note) => (
+          <li key={note}>{note}</li>
+        ))}
+      </ul>
     </div>
   );
 }

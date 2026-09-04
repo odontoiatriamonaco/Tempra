@@ -1,10 +1,10 @@
-// Tempra v0.5.0 — 2026-09-04 12:10
+// Tempra v0.6.0 — 2026-09-04 13:00
 //
 // Unica fonte della versione applicativa (spec sezione 0).
 // La leggono: la UI (Impostazioni), il service worker (nome della cache),
 // e il file di backup JSON.
 
-export const VERSION = '0.5.0';
+export const VERSION = '0.6.0';
 
 /** Nome della cache del service worker, legato alla versione. */
 export const CACHE_NAME = `tempra-v${VERSION}`;

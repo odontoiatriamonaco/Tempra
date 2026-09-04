@@ -1,4 +1,4 @@
-// Tempra v0.4.0 — 2026-09-04 11:30
+// Tempra v0.6.0 — 2026-09-04 13:00
 //
 // Dove siamo nel mesociclo. Spec 4.4: «il calendario non avanza per data ma
 // per sessioni completate: la settimana 2 inizia quando tutti i giorni della
@@ -46,22 +46,29 @@ export function getScheduleState(program, sessions = []) {
   const totalDays = program.days.length;
   const byWeek = completedByWeek(sessions);
 
+  // Con lo scarico anticipato (4.3) il mesociclo finisce con quella settimana,
+  // non alla sesta: dopo si riparte da capo con i pesi raggiunti.
+  const lastWeek =
+    program.deloadAtWeek === null || program.deloadAtWeek === undefined
+      ? WEEKS_PER_MESOCYCLE
+      : program.deloadAtWeek + 1;
+
   // La prima settimana non ancora chiusa. Se sono chiuse tutte, il mesociclo
   // è finito e l'app proporrà di generarne uno nuovo.
-  let weekIndex = WEEKS_PER_MESOCYCLE;
-  for (let week = 0; week < WEEKS_PER_MESOCYCLE; week += 1) {
+  let weekIndex = lastWeek;
+  for (let week = 0; week < lastWeek; week += 1) {
     if ((byWeek.get(week)?.size ?? 0) < totalDays) {
       weekIndex = week;
       break;
     }
   }
 
-  const isComplete = weekIndex === WEEKS_PER_MESOCYCLE;
+  const isComplete = weekIndex === lastWeek;
 
   // A mesociclo chiuso si resta sull'ultima settimana, con tutti i giorni
   // fatti: non c'è un giorno successivo da proporre, c'è un nuovo mesociclo
   // da generare (spec 3.6).
-  const shownWeek = isComplete ? WEEKS_PER_MESOCYCLE - 1 : weekIndex;
+  const shownWeek = isComplete ? lastWeek - 1 : weekIndex;
   const doneThisWeek = byWeek.get(shownWeek) ?? new Set();
 
   const days = program.days.map((day) => ({

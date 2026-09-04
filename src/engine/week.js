@@ -1,4 +1,4 @@
-// Tempra v0.3.0 — 2026-09-04 10:40
+// Tempra v0.6.0 — 2026-09-04 13:00
 //
 // Periodizzazione del mesociclo. Spec 3.6.
 //
@@ -41,12 +41,18 @@ export function setsForWeek(baseSets, tier, plan) {
  * @returns {{ weekIndex: number, targetRIR: number, isDeload: boolean, note: string|null, days: object[] }}
  */
 export function getWeekPlan(program, weekIndex) {
-  const plan = WEEK_PLANS[weekIndex];
-  if (!plan) {
+  if (!WEEK_PLANS[weekIndex]) {
     throw new RangeError(
       `Settimana ${weekIndex} fuori dal mesociclo (0–${WEEKS_PER_MESOCYCLE - 1}).`
     );
   }
+
+  // Scarico anticipato (spec 4.3): due sedute dure di fila trasformano la
+  // settimana corrente nella settimana di scarico, ovunque si trovi.
+  const plan =
+    program.deloadAtWeek === weekIndex
+      ? WEEK_PLANS[WEEKS_PER_MESOCYCLE - 1]
+      : WEEK_PLANS[weekIndex];
 
   return {
     weekIndex,

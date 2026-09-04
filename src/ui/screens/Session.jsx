@@ -1,4 +1,4 @@
-// Tempra v0.5.0 — 2026-09-04 12:10
+// Tempra v0.6.0 — 2026-09-04 13:00
 //
 // La sessione guidata (spec 7.1). Ogni serie chiusa viene scritta subito su
 // IndexedDB: chiudere il browser a metà seduta non deve costare nulla (7.2).
@@ -7,7 +7,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { DISCLAIMER, UI_STRINGS } from '../../data/strings.it.js';
 import { getWeekPlan } from '../../engine/week.js';
 import { getScheduleState } from '../../engine/schedule.js';
-import { slotStatus } from '../../engine/session.js';
+import { applyPendingAdjustment, slotStatus } from '../../engine/session.js';
+import { reduceSession } from '../../engine/reduce.js';
 import {
   getSettings,
   newId,
@@ -21,6 +22,9 @@ import BottomSheet from '../components/BottomSheet.jsx';
 import ExerciseCard from '../components/ExerciseCard.jsx';
 import PlateCalculator from '../components/PlateCalculator.jsx';
 import RestTimer from '../components/RestTimer.jsx';
+
+/** Durate proposte dal selettore "poco tempo" (spec 5). */
+const SHORT_MINUTES = [20, 30, 45];
 
 export default function Session({ params }) {
   const requestedDay = Number.parseInt(params?.[0] ?? '', 10);
@@ -126,8 +130,18 @@ export default function Session({ params }) {
   }
 
   const plan = getWeekPlan(program, session.weekIndex);
-  const day = plan.days.find((candidate) => candidate.index === session.dayIndex);
-  if (!day) return <p className="muted">{UI_STRINGS.common.notFound}</p>;
+  const planned = plan.days.find((candidate) => candidate.index === session.dayIndex);
+  if (!planned) return <p className="muted">{UI_STRINGS.common.notFound}</p>;
+
+  // Prima l'aggiustamento una tantum lasciato dal feedback della volta scorsa
+  // (4.3), poi l'eventuale riduzione richiesta oggi (sezione 5).
+  const adjusted = applyPendingAdjustment(
+    planned,
+    program.pendingAdjustments?.[session.dayIndex]
+  );
+  const day = session.reducedToMinutes
+    ? reduceSession(adjusted, session.reducedToMinutes)
+    : adjusted;
 
   const daySlots = day.slots;
   const level = profile?.level ?? 'intermediate';
@@ -147,6 +161,14 @@ export default function Session({ params }) {
           {UI_STRINGS.home.weekLabel} {session.weekIndex + 1} · RIR {plan.targetRIR}
         </span>
       </header>
+
+      <ShortOnTime
+        current={session.reducedToMinutes}
+        estimatedMinutes={Math.round(day.estimatedSeconds / 60) + 8}
+        overTarget={day.overTarget}
+        disabled={session.sets.length > 0}
+        onChoose={(minutes) => persist({ ...session, reducedToMinutes: minutes })}
+      />
 
       {daySlots.map((slot) => {
         const exercise = exerciseFor(slot);
@@ -234,6 +256,55 @@ export default function Session({ params }) {
           {UI_STRINGS.session.confirmEnd}
         </button>
       </BottomSheet>
+    </div>
+  );
+}
+
+/**
+ * Selettore "poco tempo" (spec 5). Chiuso di default, e non più modificabile
+ * una volta iniziata la seduta: togliere esercizi già fatti non avrebbe senso.
+ */
+function ShortOnTime({ current, estimatedMinutes, overTarget, disabled, onChoose }) {
+  const [open, setOpen] = useState(false);
+
+  if (current) {
+    return (
+      <p className="shorttime__active">
+        {UI_STRINGS.session.reducedTo.replace('{n}', String(current))}{' '}
+        <span className="num">≈ {estimatedMinutes} {UI_STRINGS.common.minutes}</span>
+        {overTarget && ` — ${UI_STRINGS.session.reducedOver}`}
+      </p>
+    );
+  }
+
+  if (disabled) return null;
+
+  if (!open) {
+    return (
+      <button type="button" className="button button--ghost" onClick={() => setOpen(true)}>
+        {UI_STRINGS.session.shortOnTime}
+      </button>
+    );
+  }
+
+  return (
+    <div className="stack">
+      <p className="muted">{UI_STRINGS.session.shortOnTimeQuestion}</p>
+      <div className="choice choice--compact">
+        {SHORT_MINUTES.map((minutes) => (
+          <button
+            key={minutes}
+            type="button"
+            className="choice__option"
+            onClick={() => onChoose(minutes)}
+          >
+            <span className="choice__title">{minutes}</span>
+          </button>
+        ))}
+      </div>
+      <button type="button" className="button button--ghost" onClick={() => setOpen(false)}>
+        {UI_STRINGS.common.cancel}
+      </button>
     </div>
   );
 }

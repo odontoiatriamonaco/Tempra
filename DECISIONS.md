@@ -1,4 +1,4 @@
-<!-- Tempra v0.5.0 — 2026-09-04 12:10 -->
+<!-- Tempra v0.6.0 — 2026-09-04 13:00 -->
 
 # Decisioni di implementazione
 
@@ -395,3 +395,70 @@ La spec 7.1 prevede, dopo il riepilogo, «le `notes` del motore per la prossima
 volta». Le note nascono da `applySession`, che è Fase 5: al momento non
 esistono. Al loro posto c'è una riga che dice cosa arriverà. Lo stesso vale per
 il blocco "ultime note del motore" sulla Home.
+
+---
+
+## Fase 5 — Progressione e riduzione
+
+### D-044 · La regola di sicurezza sul RIR era codice morto
+
+La spec 4.2 definisce il caso A come «tutte le serie hanno reps ≥ repMax **e
+RIR ≥ targetRIR**», e subito dopo aggiunge una regola di sicurezza per «il caso
+A con RIR medio ≤ targetRIR − 2». Le due condizioni non possono coesistere: se
+ogni serie ha RIR ≥ targetRIR, la media non può essere due punti sotto. Presa
+alla lettera, la regola di sicurezza non si attiverebbe mai.
+
+Il criterio 4.7 però la richiede esplicitamente («caso A con RIR medio =
+targetRIR − 2 non aumenta il peso»), il che conferma che il caso A non doveva
+avere una condizione sul RIR. L'aumento si attiva quindi sulle ripetizioni, e il
+RIR fa da freno. È anche il comportamento corretto: si sale quando si arriva in
+cima al range, a meno che non sia stata una macina.
+
+### D-045 · `deloadAtWeek`, campo in più
+
+Lo scarico anticipato di 4.3 («la settimana corrente diventa settimana 6, poi si
+riparte da settimana 1») ha bisogno di un posto dove essere ricordato.
+`getWeekPlan` restituisce il piano di scarico per quella settimana ovunque si
+trovi, e `getScheduleState` la tratta come ultima del mesociclo: finita quella,
+l'app propone il mesociclo nuovo, che è esattamente «si riparte da settimana 1
+con i pesi attuali».
+
+### D-046 · `pendingAdjustments`, campo in più
+
+L'effetto «−1 serie sugli accessori della prossima sessione di quel giorno» è
+descritto come «una tantum, non modifica il programma». Va però ricordato fra
+due sedute, quindi vive in una mappa `dayIndex → aggiustamento` che
+`applySession` consuma alla seduta successiva, prima che il nuovo feedback
+possa scriverne un altro. La seduta lo applica con `applyPendingAdjustment`,
+che non tocca il programma salvato.
+
+### D-047 · Il "peso usato" della calibrazione è il massimo delle serie
+
+La spec 4.1 dice «workingWeightKg = peso usato» senza definire cosa succede se
+le serie sono state fatte con pesi diversi. Si prende il massimo: è il carico
+che l'utente ha davvero gestito, e nel ramo "troppo alto" è anche quello da cui
+ha senso scendere del 10 %.
+
+### D-048 · Le note del motore vivono sulla sessione
+
+`session.engineNotes` conserva le note prodotte da `applySession`. Servono in
+due punti — il riepilogo di fine seduta e il blocco "dalla scorsa volta" in Home
+(spec 7.1) — e ricalcolarle significherebbe rieseguire la progressione, che non
+è idempotente: `failStreak` verrebbe incrementato due volte.
+
+### D-049 · L'onboarding usa un seed casuale, i test non possono assumere l'esercizio
+
+`Onboarding` genera la scheda con un seed casuale, così due utenti con gli
+stessi parametri non ricevono la stessa identica scheda. Di conseguenza un test
+end-to-end non può dare per scontato *quale* esercizio compaia per primo: un
+test sul calcolatore dischi che assumeva il rematore con bilanciere passava o
+falliva a seconda del sorteggio. Ora cerca il primo esercizio con bilanciere e
+verifica il caso deterministico del bilanciere scarico; i tre casi numerici
+della spec restano nei test unitari, dove il seed non c'entra.
+
+### D-050 · La progressione si applica al salvataggio del feedback
+
+Non alla chiusura della seduta: le regole di 4.3 hanno bisogno delle tre
+risposte, e applicare la progressione due volte sulla stessa seduta
+raddoppierebbe gli incrementi. `SessionEnd` chiama `applySession` una volta
+sola, quando il feedback viene salvato e la seduta passa a `completed`.

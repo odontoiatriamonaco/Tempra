@@ -1,14 +1,22 @@
-// Tempra v0.5.0 — 2026-09-04 12:10
+// Tempra v0.6.0 — 2026-09-04 13:00
 //
 // Fine sessione (spec 7.1): tre domande a pulsanti, obbligatorie, poi il
-// riepilogo. Le note del motore di progressione arrivano in Fase 5: finché
-// `applySession` non esiste non c'è niente da scrivere, e un riquadro vuoto
-// sarebbe peggio di nessun riquadro.
+// riepilogo e le note del motore.
+//
+// È qui che si applica la progressione (sezione 4): il salvataggio del
+// feedback è l'unico momento in cui esistono insieme le serie registrate e il
+// giudizio dell'utente sulla seduta.
 
 import { useEffect, useMemo, useState } from 'react';
 import { UI_STRINGS } from '../../data/strings.it.js';
 import { sessionSummary } from '../../engine/session.js';
-import { getSessionsForProgram, now, saveSession } from '../../db/repo.js';
+import { applySession } from '../../engine/progress.js';
+import {
+  getSessionsForProgram,
+  now,
+  saveProgram,
+  saveSession,
+} from '../../db/repo.js';
 import { useAppState } from '../hooks/useAppState.js';
 import { navigate, ROUTES } from '../hooks/useHashRoute.js';
 
@@ -35,18 +43,22 @@ const QUESTIONS = [
 
 export default function SessionEnd({ params }) {
   const sessionId = params?.[0];
-  const { loading, program, reload } = useAppState();
+  const { loading, program, catalog, reload } = useAppState();
   const [session, setSession] = useState(null);
+  const [history, setHistory] = useState([]);
   const [answers, setAnswers] = useState({});
   const [saved, setSaved] = useState(false);
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     if (!program || !sessionId) return;
     getSessionsForProgram(program.id).then((all) => {
       const found = all.find((candidate) => candidate.id === sessionId);
       setSession(found ?? null);
+      setHistory(all.filter((candidate) => candidate.id !== sessionId));
       if (found?.feedback) {
         setAnswers(found.feedback);
+        setNotes(found.engineNotes ?? []);
         setSaved(true);
       }
     });
@@ -64,8 +76,17 @@ export default function SessionEnd({ params }) {
       endedAt: session.endedAt ?? now(),
       status: 'completed',
     };
+
+    // La progressione si applica qui, con la seduta appena chiusa: è l'unico
+    // momento in cui esistono sia il feedback sia le serie (spec 4).
+    const result = applySession(program, finished, history, catalog);
+    finished.engineNotes = result.notes;
+
     await saveSession(finished);
+    if (result.notes.length > 0) await saveProgram(result.program);
+
     setSession(finished);
+    setNotes(result.notes);
     setSaved(true);
     await reload();
   };
@@ -128,7 +149,18 @@ export default function SessionEnd({ params }) {
         )}
       </div>
 
-      <p className="muted">{UI_STRINGS.feedback.notesComingSoon}</p>
+      {notes.length > 0 ? (
+        <div className="card stack">
+          <h2>{UI_STRINGS.feedback.notesTitle}</h2>
+          <ul className="notes">
+            {notes.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p className="muted">{UI_STRINGS.feedback.noNotes}</p>
+      )}
 
       <button
         type="button"
