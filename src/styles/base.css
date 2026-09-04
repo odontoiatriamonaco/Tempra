@@ -1,0 +1,166 @@
+/* Tempra v0.1.0 — 2026-09-04 08:24 */
+
+@import './tokens.css';
+
+/* ---- Reset minimo ---- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  /* In palestra si tocca molto e si trascina poco: niente selezione accidentale
+     né zoom da doppio tap sui controlli. */
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-bold);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-xl);
+}
+
+h2 {
+  font-size: var(--text-lg);
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ---- Focus visibile: obbligatorio, mai rimosso ---- */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Guscio dell'app ---- */
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-top: var(--safe-top);
+}
+
+.app__main {
+  flex: 1;
+  padding: var(--space-4);
+  padding-bottom: calc(var(--space-6) + var(--safe-bottom));
+}
+
+/* ---- Navigazione ---- */
+
+.nav {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding-bottom: var(--safe-bottom);
+}
+
+.nav__item {
+  flex: 1;
+  min-height: var(--tap-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.nav__item[aria-current='page'] {
+  color: var(--accent);
+  font-weight: var(--weight-medium);
+}
+
+/* ---- Elementi ricorrenti ---- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.disclaimer-short {
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  text-align: center;
+  padding-block: var(--space-4);
+}
+
+/* Numeri: cifre allineate, si leggono con il telefono per terra. */
+.num {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+}

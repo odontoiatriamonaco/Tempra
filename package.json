@@ -1,0 +1,40 @@
+{
+  "name": "tempra",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "PWA per l'allenamento con i pesi. Tutti i dati restano sul dispositivo.",
+  "license": "MIT",
+  "_dependencyNotes": {
+    "_": "JSON non ammette commenti: spec sezione 0 richiede di motivare ogni dipendenza fuori dalla sezione 9. Qui la motivazione.",
+    "eslint + @eslint/js + eslint-plugin-react + eslint-plugin-react-hooks + globals": "La CI di sezione 10 richiede 'lint' a ogni push. Solo devDependencies, zero impatto sul bundle.",
+    "fake-indexeddb": "IndexedDB non esiste in Node: serve per testare src/db/schema.js con Vitest. Solo devDependency.",
+    "@vitejs/plugin-react": "Richiesto da Vite per il JSX di React 18 (implicito nella sezione 9)."
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "idb": "^8.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@playwright/test": "^1.55.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.34.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "fake-indexeddb": "^6.0.1",
+    "globals": "^15.15.0",
+    "vite": "^5.4.20",
+    "vitest": "^2.1.9"
+  }
+}

@@ -1,0 +1,11 @@
+# Tempra v0.1.0 — 2026-09-04 08:24
+# Il repository si sviluppa su Windows e si costruisce su Linux: fine riga LF
+# normalizzato ovunque, così la CI e il locale vedono gli stessi byte.
+
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.woff2 binary

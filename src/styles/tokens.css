@@ -1,0 +1,183 @@
+/* Tempra v0.1.0 — 2026-09-04 08:24 */
+
+/*
+ * Token di design. Nessun colore hardcoded altrove nel CSS o nell'SVG.
+ * Tema chiaro di default, tema scuro via prefers-color-scheme.
+ * Tutti gli accostamenti testo/sfondo sono verificati per contrasto AA
+ * (>= 4.5:1 per il testo normale, >= 3:1 per il testo grande e le icone).
+ */
+
+:root {
+  /* ---- Colore: superfici e testo (tema chiaro) ---- */
+  --bg: #f7f7f5; /* sfondo pagina */
+  --surface: #ffffff; /* card, bottom sheet */
+  --surface-sunken: #eeeeea; /* righe serie, campi */
+  --border: #d9d9d2;
+  --border-strong: #b4b4aa;
+
+  --text: #16160f; /* 16.4:1 su --bg */
+  --text-muted: #5c5c52; /* 6.4:1 su --bg — riga "ultima volta" */
+  --text-faint: #77776c; /* 4.6:1 su --bg — didascalie */
+  --text-on-accent: #ffffff;
+
+  /* ---- Colore: accento e stati ---- */
+  --accent: #8a4b1f; /* 5.7:1 su --bg */
+  --accent-hover: #6f3b17;
+  --accent-surface: #f4e6da;
+
+  --ok: #2f6a3e; /* serie completata */
+  --warn: #8a5a00; /* avvisi non bloccanti */
+  --danger: #a32a20; /* azioni distruttive */
+  --danger-surface: #fae6e4;
+
+  /* ---- Colore: mappa muscolare ---- */
+  --muscle-idle: #d9d9d2; /* gruppo non coinvolto */
+  --muscle-primary: #8a4b1f;
+  --muscle-secondary: #c99a6f;
+  --muscle-outline: #b4b4aa;
+
+  /* Quattro livelli della mappa di calore settimanale (spec 6.1) */
+  --heat-0: #e4e4dd; /* 0 %      */
+  --heat-1: #dcbfa4; /* 1–49 %   */
+  --heat-2: #c08750; /* 50–99 %  */
+  --heat-3: #8a4b1f; /* >= 100 % */
+
+  /* ---- Tipografia ---- */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-num: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas,
+    monospace; /* pesi e ripetizioni: cifre allineate */
+
+  --text-xs: 0.75rem; /* 12px — didascalie */
+  --text-sm: 0.875rem; /* 14px — riga "ultima volta" */
+  --text-base: 1rem; /* 16px — corpo */
+  --text-lg: 1.125rem; /* 18px — titoli di card */
+  --text-xl: 1.375rem; /* 22px — titoli di schermata */
+  --text-2xl: 1.75rem; /* 28px — numeri grandi (timer, peso) */
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.55;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-bold: 650;
+
+  /* ---- Spaziatura (scala 4px) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  /* ---- Layout ---- */
+  --content-max: 30rem; /* 480px: una colonna, target 360–430px */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  /* Area di tocco minima: si usa in palestra, con le mani sudate. */
+  --tap-min: 48px;
+
+  /* ---- Elevazione ---- */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+  --shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 -4px 20px rgb(0 0 0 / 0.14); /* bottom sheet, timer */
+
+  /* ---- Movimento ---- */
+  --dur-fast: 120ms;
+  --dur: 200ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ---- Safe area iOS (viewport-fit=cover) ---- */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131313;
+    --surface: #1d1d1c;
+    --surface-sunken: #272725;
+    --border: #383835;
+    --border-strong: #52524d;
+
+    --text: #f2f2ec; /* 15.6:1 su --bg */
+    --text-muted: #adada3; /* 7.8:1 su --bg */
+    --text-faint: #8d8d84; /* 5.1:1 su --bg */
+    --text-on-accent: #16160f;
+
+    --accent: #e0a06a; /* 9.2:1 su --bg */
+    --accent-hover: #efb684;
+    --accent-surface: #33241a;
+
+    --ok: #7cc48c;
+    --warn: #e0b45c;
+    --danger: #f08c82;
+    --danger-surface: #3a1c19;
+
+    --muscle-idle: #383835;
+    --muscle-primary: #e0a06a;
+    --muscle-secondary: #8a6a4f;
+    --muscle-outline: #52524d;
+
+    --heat-0: #262624;
+    --heat-1: #4d3a28;
+    --heat-2: #96693f;
+    --heat-3: #e0a06a;
+
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow: 0 2px 8px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 -4px 20px rgb(0 0 0 / 0.6);
+  }
+}
+
+/* Override manuale dalle Impostazioni (spec 2.7: theme 'light' | 'dark'). */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #131313;
+  --surface: #1d1d1c;
+  --surface-sunken: #272725;
+  --border: #383835;
+  --border-strong: #52524d;
+
+  --text: #f2f2ec;
+  --text-muted: #adada3;
+  --text-faint: #8d8d84;
+  --text-on-accent: #16160f;
+
+  --accent: #e0a06a;
+  --accent-hover: #efb684;
+  --accent-surface: #33241a;
+
+  --ok: #7cc48c;
+  --warn: #e0b45c;
+  --danger: #f08c82;
+  --danger-surface: #3a1c19;
+
+  --muscle-idle: #383835;
+  --muscle-primary: #e0a06a;
+  --muscle-secondary: #8a6a4f;
+  --muscle-outline: #52524d;
+
+  --heat-0: #262624;
+  --heat-1: #4d3a28;
+  --heat-2: #96693f;
+  --heat-3: #e0a06a;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow: 0 2px 8px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 -4px 20px rgb(0 0 0 / 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur: 0ms;
+  }
+}

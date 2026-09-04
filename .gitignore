@@ -1,0 +1,27 @@
+node_modules/
+dist/
+dist-ssr/
+.vite/
+
+# test
+coverage/
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# log
+*.log
+npm-debug.log*
+
+# locale
+.env
+.env.local
+.vercel
