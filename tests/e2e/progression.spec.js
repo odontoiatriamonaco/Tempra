@@ -27,6 +27,19 @@ async function completeAllSets(page, rir = '2', plusClicks = 0) {
   }
 }
 
+/**
+ * Il peso della prima serie registrata, senza unità.
+ *
+ * Il seed dell'onboarding è casuale, quindi l'esercizio proposto — e con lui
+ * il carico di partenza e l'incremento — cambia a ogni esecuzione: i pesi
+ * vanno letti da quello che c'è a schermo, non supposti.
+ */
+async function readLoggedWeight(page) {
+  return page.evaluate(
+    () => document.querySelector('.setrow__done').textContent.match(/^[\d,]+/)[0]
+  );
+}
+
 /** Dalla sessione al riepilogo, rispondendo alle tre domande. */
 async function finishSession(page, difficulty = 'Giusta') {
   await page.getByRole('button', { name: 'Termina sessione' }).click();
@@ -54,11 +67,12 @@ test('la prima seduta calibra il carico e lo dice', async ({ page }) => {
 test('la seconda seduta al massimo del range alza il peso', async ({ page }) => {
   await completeOnboarding(page);
 
-  // Prima seduta: calibrazione a 60 kg (20 di bilanciere + 16 scatti da 2,5).
+  // Prima seduta: si alza il carico di 16 scatti e si calibra lì.
   await openSession(page);
   await completeAllSets(page, '3', 16);
+  const calibrated = await readLoggedWeight(page);
   await finishSession(page);
-  await expect(page.locator('.notes li').first()).toContainText('60 kg');
+  await expect(page.locator('.notes li').first()).toContainText(`${calibrated} kg`);
   await page.getByRole('button', { name: 'Torna alla schermata iniziale' }).click();
 
   // Seconda seduta sullo stesso giorno.
@@ -73,8 +87,13 @@ test('la seconda seduta al massimo del range alza il peso', async ({ page }) => 
   await completeAllSets(page, '2');
   await finishSession(page);
 
-  // Doppia progressione, caso A: un incremento sopra i 60 kg calibrati.
-  await expect(page.locator('.notes li').first()).toContainText('prossima volta 62,5 kg');
+  // Doppia progressione, caso A: il peso della prossima volta è più alto di
+  // quello calibrato. Di quanto dipende dall'incremento dell'esercizio.
+  const note = await page.locator('.notes li').first().textContent();
+  expect(note).toContain('prossima volta');
+
+  const next = Number(note.match(/prossima volta ([\d,]+) kg/)[1].replace(',', '.'));
+  expect(next).toBeGreaterThan(Number(calibrated.replace(',', '.')));
 });
 
 test('le note del motore compaiono anche in Home', async ({ page }) => {

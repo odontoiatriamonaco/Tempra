@@ -1,4 +1,4 @@
-// Tempra v0.7.0 — 2026-09-04 13:20
+// Tempra v1.0.0 — 2026-09-04 14:30
 //
 // Tutte le stringhe dell'interfaccia, in italiano. Nessun testo visibile
 // all'utente va scritto dentro i componenti.
@@ -51,6 +51,8 @@ export const UI_STRINGS = Object.freeze({
     tagline: 'Il tuo allenamento, sul tuo telefono e basta.',
     version: 'Versione',
     loading: 'Un attimo…',
+    updateAvailable: 'Nuova versione disponibile',
+    reload: 'Ricarica',
   }),
 
   nav: Object.freeze({

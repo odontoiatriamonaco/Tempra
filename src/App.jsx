@@ -1,4 +1,4 @@
-// Tempra v0.4.0 — 2026-09-04 11:30
+// Tempra v1.0.0 — 2026-09-04 14:30
 //
 // Guscio dell'app: routing hash e guardia sul disclaimer.
 // Finché `disclaimerAcceptedAt` non è valorizzato, l'unica rotta raggiungibile
@@ -6,6 +6,7 @@
 
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { navigate, ROUTES, useHashRoute } from './ui/hooks/useHashRoute.js';
+import { useServiceWorker } from './ui/hooks/useServiceWorker.js';
 import { hasAcceptedDisclaimer } from './db/repo.js';
 import { UI_STRINGS } from './data/strings.it.js';
 
@@ -41,6 +42,7 @@ const NAV_ITEMS = [
 
 export default function App() {
   const { route } = useHashRoute();
+  const { updateReady, applyUpdate } = useServiceWorker();
   /** null finché non sappiamo se il disclaimer è stato accettato. */
   const [accepted, setAccepted] = useState(null);
 
@@ -99,10 +101,23 @@ export default function App() {
 
   return (
     <div className="app" data-route={route.name}>
+      {updateReady && <UpdateBanner onApply={applyUpdate} />}
       <main className="app__main">
         <Screen params={route.params} />
       </main>
       {showNav && <Nav current={route.name} />}
+    </div>
+  );
+}
+
+/** Prompt di aggiornamento richiesto dalla sezione 8. */
+function UpdateBanner({ onApply }) {
+  return (
+    <div className="update" role="status">
+      <span>{UI_STRINGS.app.updateAvailable}</span>
+      <button type="button" className="update__button" onClick={onApply}>
+        {UI_STRINGS.app.reload}
+      </button>
     </div>
   );
 }

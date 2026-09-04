@@ -1,4 +1,4 @@
-// Tempra v0.2.0 — 2026-09-04 09:12
+// Tempra v1.0.0 — 2026-09-04 14:30
 
 import js from '@eslint/js';
 import globals from 'globals';
@@ -43,6 +43,16 @@ export default [
     // ed è comunque limitato all'origin dalla CSP di vercel.json.
     files: ['tests/**/*.{js,jsx}', 'scripts/**/*.mjs', '*.config.js', 'sw.js'],
     languageOptions: { globals: { ...globals.node } },
+    rules: { 'no-restricted-globals': 'off' },
+  },
+
+  {
+    // `sw.js` è un modello: i due segnaposto vengono sostituiti alla build dal
+    // plugin in vite.config.js, che conosce i nomi definitivi degli asset.
+    files: ['sw.js'],
+    languageOptions: {
+      globals: { ...globals.serviceworker, __PRECACHE__: 'readonly' },
+    },
     rules: { 'no-restricted-globals': 'off' },
   },
 ];

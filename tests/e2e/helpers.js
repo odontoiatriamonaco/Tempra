@@ -32,7 +32,9 @@ export async function completeOnboarding(page, choices = {}) {
     level = 'intermediate',
   } = choices;
 
-  await page.goto('/');
+  // Seed fissato: senza, la scheda generata cambia a ogni esecuzione e un test
+  // non può sapere quale esercizio si troverà davanti.
+  await page.goto(`/?seed=${choices.seed ?? 20260904}`);
   await scrollDisclaimerToEnd(page);
   await page.getByRole('button', { name: 'Ho letto e accetto' }).click();
   await page.getByRole('button', { name: GOAL_LABEL[goal] }).click();

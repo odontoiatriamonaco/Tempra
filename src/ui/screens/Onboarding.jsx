@@ -17,13 +17,29 @@ const MINUTES = [30, 45, 60, 75, 90];
 
 const STEPS = ['disclaimer', 'goal', 'days', 'minutes', 'level', 'summary'];
 
+/**
+ * Il seed della generazione: casuale, così due persone con gli stessi
+ * parametri non ricevono la stessa identica scheda.
+ *
+ * Si può però fissarlo con `?seed=` nell'URL. Serve ai test end-to-end, che
+ * altrimenti non saprebbero quale esercizio aspettarsi, ed è utile anche per
+ * riprodurre la scheda di qualcun altro a parità di risposte.
+ *
+ * @returns {number}
+ */
+function initialSeed() {
+  const fromUrl = Number(new URLSearchParams(window.location.search).get('seed'));
+  if (Number.isFinite(fromUrl) && fromUrl > 0) return Math.floor(fromUrl);
+  return Math.floor(Math.random() * 2 ** 31);
+}
+
 export default function Onboarding({ onDone }) {
   const [step, setStep] = useState('disclaimer');
   const [goal, setGoal] = useState(null);
   const [daysPerWeek, setDaysPerWeek] = useState(null);
   const [minutesPerSession, setMinutesPerSession] = useState(null);
   const [level, setLevel] = useState(null);
-  const [seed, setSeed] = useState(() => Math.floor(Math.random() * 2 ** 31));
+  const [seed, setSeed] = useState(initialSeed);
   const [catalog, setCatalog] = useState([]);
   const [saving, setSaving] = useState(false);
 

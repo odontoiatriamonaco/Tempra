@@ -1,4 +1,4 @@
-<!-- Tempra v0.7.0 — 2026-09-04 13:20 -->
+<!-- Tempra v1.0.0 — 2026-09-04 14:30 -->
 
 # Decisioni di implementazione
 
@@ -525,3 +525,80 @@ sovrascrivere: «sostituisco tutto» è una frase che merita un numero accanto.
 La sezione misure mostra i numeri e tace. La spec 1.2 tiene fuori le stime di
 composizione corporea; un commento su un peso che sale o scende sarebbe la
 stessa cosa travestita da incoraggiamento.
+
+---
+
+## Fase 7 — PWA e rilascio
+
+### D-057 · `ignoreVary: true` su ogni lettura dalla cache
+
+È il difetto che ha tenuto rossi due test offline, e la diagnosi non era quella
+che sembrava. Il documento arrivava dalla cache correttamente; erano **JS e CSS**
+a non arrivare, quindi React non montava e la pagina restava vuota.
+
+La catena: `vite preview` risponde con `Vary: Origin`; Vite genera i tag della
+build con l'attributo `crossorigin`; Chromium manda l'header `Origin` su quelle
+richieste anche se sono della stessa origine; il precache del service worker
+invece non lo manda. Con il comportamento predefinito di `caches.match`
+(`ignoreVary: false`) le due cose non corrispondono e la voce risulta assente.
+
+Non è una stranezza del server di anteprima: qualunque CDN manda
+`Vary: Accept-Encoding`. Le chiavi del precache sono URL nudi, e così vanno
+confrontate.
+
+### D-058 · Le navigazioni si risolvono per prime, senza toccare la rete
+
+Tempra usa un router a hash: ogni navigazione chiede sempre lo stesso
+documento. Prima il service worker ci arrivava solo dopo che `fetch` falliva.
+Ora la navigazione è il primo caso gestito, con tre chiavi in ordine —
+la richiesta esatta, `/index.html`, `/` — e `ignoreSearch` attivo, così anche
+`/?utm_source=…` apre l'app.
+
+### D-059 · Il plugin del service worker gira con `enforce: 'post'`
+
+Con l'ordine predefinito, il `generateBundle` del plugin girava **prima** di
+quello che emette `index.html`, che quindi non compariva nel precache: il
+ripiego `caches.match('/index.html')` era codice morto dal primo giorno.
+`enforce: 'post'` lo mette dopo, e in più evita di precaricare i chunk che Vite
+ha nel frattempo incorporato nell'HTML e rimosso dal bundle.
+
+### D-060 · Il primo avvio non ricarica più la pagina
+
+Al primo avvio il service worker prende il controllo con `clients.claim()`,
+scatta `controllerchange`, e la pagina si ricaricava da sola: chi era a metà
+onboarding si ritrovava sul disclaimer con le risposte perse. La ricarica ora
+avviene solo se è stata l'utente a chiederla premendo "Ricarica". Trovato da un
+test end-to-end, non a occhio.
+
+### D-061 · Le richieste fuori origine ricevono un errore, non un silenzio
+
+`if (url.origin !== self.location.origin) return;` sembrava bloccare le uscite,
+ma non chiamare `respondWith` significa **lasciar fare al browser** la sua
+richiesta di rete. Il codice diceva una cosa e ne faceva un'altra, proprio nel
+punto in cui il requisito 1.3 poteva rompersi. Ora risponde `Response.error()`.
+
+### D-062 · Il seed della generazione si può fissare dall'URL
+
+Tre test end-to-end di fase diverse si sono rotti per lo stesso motivo: la
+scheda cambia a ogni esecuzione, e un test non può sapere quale esercizio si
+troverà davanti — una volta è capitato un giorno senza nemmeno un bilanciere.
+Invece di continuare a rattoppare i singoli test, l'onboarding accetta
+`?seed=` nell'URL. I test lo fissano; per l'utente il seed resta casuale, così
+due persone con le stesse risposte non ricevono la stessa identica scheda.
+
+### D-063 · Le icone sono verificate in CI, non solo generate
+
+`npm run make:icons` in CI seguito da `git diff --exit-code` su `public/icons`:
+se qualcuno rigenera le icone in modo diverso, o le sostituisce a mano con
+delle RGBA, la build si ferma. Un'icona con canale alpha viene scartata da iOS
+sulla schermata Home, che al suo posto mette uno screenshot della pagina — un
+difetto che si vede solo su un iPhone vero.
+
+### D-064 · Niente Lighthouse in CI
+
+La spec 10.7 chiede Lighthouse in CI per la categoria PWA. Quella categoria non
+esiste più: Lighthouse l'ha rimossa nella versione 12. Al suo posto ci sono
+controlli espliciti, che verificano le stesse cose in modo più preciso e senza
+aggiungere una dipendenza pesante: il manifest è servito e ha i campi giusti,
+il service worker si registra e prende il controllo, l'app funziona a rete
+spenta, le icone non hanno canale alpha, e nessuna richiesta lascia l'origine.

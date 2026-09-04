@@ -1,4 +1,4 @@
-<!-- Tempra v0.7.0 — 2026-09-04 13:20 -->
+<!-- Tempra v1.0.0 — 2026-09-04 14:30 -->
 
 # Tempra
 
@@ -25,10 +25,8 @@ uscita: dopo il caricamento degli asset l'app non fa nessuna richiesta di rete.
 
 ## Stato
 
-**Fase 6 — progressi, catalogo, impostazioni** (`v0.7.0`). L’app è completa
-nelle funzioni: grafici del carico, misure facoltative, catalogo filtrabile,
-backup e reset. Manca solo la PWA — service worker, icone, offline, deploy —
-che è la Fase 7. Il piano delle fasi è nella sezione 11 di `spec.md`.
+**v1.0.0.** Tutte le sette fasi della sezione 11 di `spec.md` sono chiuse.
+L'app è installabile sul telefono e funziona senza rete.
 
 | Fase | Contenuto | Tag |
 | --- | --- | --- |
@@ -39,7 +37,29 @@ che è la Fase 7. Il piano delle fasi è nella sezione 11 di `spec.md`.
 | 4 | Sessione guidata | `v0.5.0` ✅ |
 | 5 | Progressione e modalità "poco tempo" | `v0.6.0` ✅ |
 | 6 | Progressi, catalogo, impostazioni | `v0.7.0` ✅ |
-| 7 | PWA, service worker, rilascio | `v1.0.0` |
+| 7 | PWA, service worker, rilascio | `v1.0.0` ✅ |
+
+## Com'è fatta
+
+| | | |
+| --- | --- | --- |
+| ![Disclaimer](docs/screenshots/1-disclaimer.png) | ![Le quattro domande](docs/screenshots/2-domande.png) | ![Anteprima della scheda](docs/screenshots/3-anteprima.png) |
+| Disclaimer bloccante | Quattro domande, cinque tap | Anteprima prima di salvare |
+| ![Oggi](docs/screenshots/4-oggi.png) | ![Sessione](docs/screenshots/5-sessione.png) | ![Timer](docs/screenshots/6-timer.png) |
+| La seduta di oggi e la mappa muscolare | Immagini, cue, note, serie | Recupero che scorre in background |
+
+Gli screenshot si rigenerano con `npm run make:shots` mentre gira `npm run dev`:
+non si aggiornano a mano.
+
+## Installarla sul telefono
+
+Non c'è nessuno store. Si apre l'indirizzo nel browser del telefono e si sceglie
+"Aggiungi alla schermata Home": da lì in poi si comporta come un'app, a schermo
+intero e senza barra degli indirizzi.
+
+Al primo caricamento scarica tutto quello che le serve — codice, immagini degli
+esercizi, catalogo — e da quel momento funziona **senza rete**. In palestra,
+dove il segnale spesso non arriva, è la condizione normale, non l'eccezione.
 
 ## Sviluppo
 
@@ -56,6 +76,8 @@ npm run dev
 | `npm run test:e2e` | Test end-to-end (Playwright) |
 | `npm run lint` | ESLint |
 | `npm run import:exercises` | Riscarica le immagini degli esercizi (a mano, non in CI) |
+| `npm run make:icons` | Rigenera le icone della PWA |
+| `npm run make:shots` | Rigenera gli screenshot del README |
 
 ## Crediti degli asset
 

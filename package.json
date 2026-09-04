@@ -1,7 +1,7 @@
 {
   "name": "tempra",
   "private": true,
-  "version": "0.7.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "PWA per l'allenamento con i pesi. Tutti i dati restano sul dispositivo.",
   "license": "MIT",
@@ -20,7 +20,9 @@
     "import:exercises": "node scripts/import-exercises.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "make:icons": "node scripts/make-icons.mjs",
+    "make:shots": "node scripts/make-screenshots.mjs"
   },
   "dependencies": {
     "idb": "^8.0.3",
