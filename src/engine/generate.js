@@ -416,6 +416,10 @@ export function buildProgramForLevel(params, catalog, seed, level) {
       pendingSecondary: [...patterns],
       slots,
       taken,
+      // Un solo accessorio per pattern di isolamento al giorno: tre varianti
+      // di alzate laterali nella stessa seduta sono nove serie dello stesso
+      // gesto, non varietà. Meglio un esercizio con più serie.
+      usedIsolation: new Set(),
       seconds,
       accessoryPool: dayDef.isolation.flatMap(
         (pattern) => rotation[pattern]?.accessory ?? []
@@ -468,6 +472,7 @@ export function buildProgramForLevel(params, catalog, seed, level) {
     let bestScore = 0;
     for (const exercise of day.accessoryPool) {
       if (day.taken.has(exercise.id)) continue;
+      if (day.usedIsolation.has(exercise.pattern)) continue;
       if (headroom(exercise, volume, level) < sets) continue;
       const score = deficitScore(exercise, volume, level);
       if (score > bestScore) {
@@ -479,6 +484,7 @@ export function buildProgramForLevel(params, catalog, seed, level) {
     const cost = costOf('accessory', sets, plan.accessory.restSec);
     if (day.seconds + cost > budget) return false;
     day.taken.add(best.id);
+    day.usedIsolation.add(best.pattern);
     day.slots.push(makeSlot(best, 'accessory', plan.accessory, sets, day.index));
     day.seconds += cost;
     addVolume(best, sets);

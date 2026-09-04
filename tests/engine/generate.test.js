@@ -121,6 +121,22 @@ describe('generateProgram — struttura (criteri 3.7)', () => {
     }
   });
 
+  it.each(eachCombo)(
+    '%s non mette due accessori dello stesso pattern nello stesso giorno',
+    (_label, { program }) => {
+      // Tre varianti di alzate laterali in una seduta sono nove serie dello
+      // stesso gesto, non varietà: meglio un esercizio con più serie.
+      for (const day of program.days) {
+        const patterns = day.slots
+          .filter((slot) => slot.tier === 'accessory')
+          .map(patternOf);
+        expect(new Set(patterns).size, `${day.label}: ${patterns.join(', ')}`).toBe(
+          patterns.length
+        );
+      }
+    }
+  );
+
   it.each(eachCombo)('%s ordina main, secondary, accessory', (_label, { program }) => {
     const rank = { main: 0, secondary: 1, accessory: 2 };
     for (const day of program.days) {

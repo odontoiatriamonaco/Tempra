@@ -268,6 +268,18 @@ Stessa logica nella rotazione degli esercizi: un candidato respinto dal tetto di
 volume **non** consuma il turno. Prima lo consumava, e bastava una pescata
 sfortunata perché un giorno perdesse tutti i suoi secondary.
 
+### D-032 · Un solo accessorio per pattern di isolamento al giorno
+
+Il riempimento sceglieva gli accessori per deficit e finiva per mettere nella
+stessa seduta alzate laterali con manubri, ai cavi **e** alla macchina: nove
+serie dello stesso gesto in tre righe diverse. Non è varietà, è un artefatto
+dell'algoritmo. Ora ogni pattern di isolamento entra una volta sola per giorno e
+il riempimento aggiunge serie all'esercizio già presente invece di varianti.
+
+Effetto collaterale positivo: con le serie concentrate su meno esercizi, il
+volume raggiunge i target più facilmente, e le configurazioni che restano
+avanzate sono passate da 10 a 12 su 75.
+
 ### D-031 · Una serie di tolleranza nel decidere la degradazione
 
 `meetsMinimumVolume` accetta uno scarto di una serie rispetto al minimo del
