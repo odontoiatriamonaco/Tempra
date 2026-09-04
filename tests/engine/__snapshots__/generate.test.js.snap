@@ -1,0 +1,70 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generateProgram — determinismo > produce lo stesso programma di riferimento (snapshot) 1`] = `
+[
+  {
+    "label": "Upper A",
+    "patterns": [
+      "h-push",
+      "h-pull",
+    ],
+    "slots": [
+      "one-arm-dumbbell-row 3x6-10 r150",
+      "barbell-bench-press 3x6-10 r150",
+      "chest-supported-t-bar-row 2x8-12 r105",
+      "machine-chest-press 2x8-12 r105",
+      "barbell-shrug 2x12-15 r75",
+      "cable-lateral-raise 2x12-15 r75",
+      "hammer-curl 2x12-15 r75",
+      "lying-triceps-extension 2x12-15 r75",
+    ],
+  },
+  {
+    "label": "Lower A",
+    "patterns": [
+      "squat",
+      "hinge",
+    ],
+    "slots": [
+      "barbell-front-squat 3x6-10 r150",
+      "barbell-romanian-deadlift 3x6-10 r150",
+      "barbell-good-morning 2x8-12 r105",
+      "pallof-press 3x12-15 r75",
+      "leg-press-calf-raise 3x12-15 r75",
+      "seated-calf-raise 2x12-15 r75",
+    ],
+  },
+  {
+    "label": "Upper B",
+    "patterns": [
+      "v-push",
+      "v-pull",
+    ],
+    "slots": [
+      "barbell-overhead-press 3x6-10 r150",
+      "chin-up 3x6-10 r150",
+      "lat-pulldown 2x8-12 r105",
+      "seated-machine-shoulder-press 2x8-12 r105",
+      "barbell-shrug 2x12-15 r75",
+      "reverse-pec-deck 2x12-15 r75",
+      "cable-crossover 2x12-15 r75",
+      "cable-lateral-raise 2x12-15 r75",
+    ],
+  },
+  {
+    "label": "Lower B",
+    "patterns": [
+      "hinge",
+      "squat",
+    ],
+    "slots": [
+      "barbell-deadlift 3x6-10 r150",
+      "barbell-back-squat 3x6-10 r150",
+      "hanging-leg-raise 3x12-15 r75",
+      "cable-crunch 2x12-15 r75",
+      "pallof-press 2x12-15 r75",
+      "leg-extension 4x12-15 r75",
+    ],
+  },
+]
+`;

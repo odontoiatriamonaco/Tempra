@@ -25,16 +25,16 @@ uscita: dopo il caricamento degli asset l'app non fa nessuna richiesta di rete.
 
 ## Stato
 
-**Fase 1 — catalogo e asset** (`v0.2.0`). Ci sono l'impalcatura e i contenuti:
-64 esercizi con cue tecnici in italiano, 120 immagini e la mappa muscolare. Non
-c'è ancora una scheda da seguire in palestra. Il piano delle fasi è nella
-sezione 11 di `spec.md`.
+**Fase 2 — motore di generazione** (`v0.3.0`). La scheda si genera davvero, per
+tutte le 225 combinazioni di parametri. Non c'è ancora un'interfaccia per
+usarla: si vede solo dalla pagina di debug, con `npm run dev` su
+`localhost:5173/#/debug`. Il piano delle fasi è nella sezione 11 di `spec.md`.
 
 | Fase | Contenuto | Tag |
 | --- | --- | --- |
 | 0 | Scaffolding, schema IndexedDB, test, CI | `v0.1.0` ✅ |
 | 1 | Catalogo esercizi, immagini, mappa muscolare | `v0.2.0` ✅ |
-| 2 | Motore di generazione della scheda | `v0.3.0` |
+| 2 | Motore di generazione della scheda | `v0.3.0` ✅ |
 | 3 | Onboarding e Home | `v0.4.0` |
 | 4 | Sessione guidata | `v0.5.0` |
 | 5 | Progressione e modalità "poco tempo" | `v0.6.0` |

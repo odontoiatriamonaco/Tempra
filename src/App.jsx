@@ -1,10 +1,10 @@
-// Tempra v0.1.0 — 2026-09-04 08:24
+// Tempra v0.3.0 — 2026-09-04 10:40
 //
 // Guscio dell'app: routing hash e guardia sul disclaimer.
 // Finché `disclaimerAcceptedAt` non è valorizzato, l'unica rotta raggiungibile
 // è l'onboarding (spec 1.3 e criterio 7.3).
 
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { ROUTES, useHashRoute } from './ui/hooks/useHashRoute.js';
 import { hasAcceptedDisclaimer } from './db/repo.js';
 import { UI_STRINGS } from './data/strings.it.js';
@@ -16,6 +16,10 @@ import SessionEnd from './ui/screens/SessionEnd.jsx';
 import Progress from './ui/screens/Progress.jsx';
 import Catalog from './ui/screens/Catalog.jsx';
 import Settings from './ui/screens/Settings.jsx';
+
+// Import dinamico dentro un ramo morto in produzione: così il bundle non si
+// porta dietro né la pagina di debug né il catalogo esercizi che importa.
+const Debug = import.meta.env.DEV ? lazy(() => import('./ui/screens/Debug.jsx')) : null;
 
 const SCREENS = {
   [ROUTES.ONBOARDING]: Onboarding,
@@ -49,6 +53,20 @@ export default function App() {
       cancelled = true;
     };
   }, [route.name]);
+
+  // La pagina di debug del motore esiste solo con `npm run dev`: in produzione
+  // non è raggiungibile e la guardia sul disclaimer resta senza eccezioni.
+  if (Debug && route.name === ROUTES.DEBUG) {
+    return (
+      <div className="app" data-route={ROUTES.DEBUG}>
+        <main className="app__main">
+          <Suspense fallback={<p className="muted">{UI_STRINGS.app.loading}</p>}>
+            <Debug />
+          </Suspense>
+        </main>
+      </div>
+    );
+  }
 
   if (accepted === null) {
     return (

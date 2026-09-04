@@ -1,4 +1,4 @@
-/* Tempra v0.1.0 — 2026-09-04 08:24 */
+/* Tempra v0.3.0 — 2026-09-04 10:40 */
 
 @import './tokens.css';
 
@@ -163,4 +163,50 @@ a {
 .num {
   font-family: var(--font-num);
   font-variant-numeric: tabular-nums;
+}
+
+/* ---- Pagina di debug del motore (solo in sviluppo) ---- */
+
+.debug__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.debug__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.debug__option,
+.debug__seed {
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-sunken);
+  font-size: var(--text-sm);
+}
+
+.debug__option[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.debug__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.debug__table td {
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.debug__table td:not(:first-child) {
+  text-align: right;
+  white-space: nowrap;
+  padding-left: var(--space-3);
 }

@@ -1,4 +1,4 @@
-// Tempra v0.2.0 — 2026-09-04 09:12
+// Tempra v0.3.0 — 2026-09-04 10:40
 //
 // Gli enum della sezione 2 della spec in forma eseguibile. Unica fonte per
 // catalogo, motori e test: se un valore non è qui dentro, non è valido.
@@ -55,9 +55,40 @@ export const MUSCLES = Object.freeze([
 ]);
 
 /**
- * Gruppi piccoli: hanno target di volume settimanale dimezzato (spec 3.3).
+ * Gruppi grandi: sono quelli attorno a cui è costruito lo split, gli unici che
+ * ricevono lavoro come main o secondary di un pattern multiarticolare. Sono
+ * loro a decidere se il volume di un livello è raggiungibile (spec 3.3) e
+ * quindi se `effectiveLevel` va degradato.
  */
-export const SMALL_MUSCLES = Object.freeze(['calves', 'forearms', 'obliques']);
+export const LARGE_MUSCLES = Object.freeze([
+  'chest',
+  'lats',
+  'quads',
+  'hamstrings',
+  'glutes',
+]);
+
+/**
+ * Gruppi piccoli: target di volume settimanale dimezzato (spec 3.3).
+ * La spec ne elenca tre; qui rientrano anche i gruppi che nel catalogo si
+ * allenano solo come isolamento — braccia, deltoidi laterali e posteriori,
+ * trapezi, lombari, addome. Chiedere loro il volume di un gruppo grande
+ * significherebbe riempire la seduta di alzate laterali. Vedi DECISIONS.md.
+ */
+export const SMALL_MUSCLES = Object.freeze([
+  'calves',
+  'forearms',
+  'obliques',
+  'abs',
+  'traps',
+  'lower-back',
+  'upper-back',
+  'front-delts',
+  'side-delts',
+  'rear-delts',
+  'biceps',
+  'triceps',
+]);
 
 export const TIERS = Object.freeze(['main', 'secondary', 'accessory']);
 

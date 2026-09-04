@@ -168,3 +168,109 @@ I cue non devono somigliare a indicazioni cliniche (spec 6.3). Il test cerca
 `terapia`, `riabilitazione`, `patologia`, `diagnosi`, `lesione`, `infortunio`,
 `dolore`, `medico` dentro `exercises.json`. È lo stesso principio del test 10.8
 sulle stringhe UI, applicato al catalogo.
+
+---
+
+## Fase 2 — Motore di generazione
+
+### D-021 · Id deterministici al posto di `crypto.randomUUID()`
+
+La sezione 2 dice che tutti gli id sono UUID; il criterio 3.7 dice che
+`generateProgram` con lo stesso seed produce output identico. Le due cose non
+possono stare insieme. Vince il determinismo, che è testabile: lo slot id è
+`{indiceGiorno}-{idEsercizio}` (univoco, perché un esercizio non si ripete mai
+nello stesso giorno) e il programma è `program-{seed}`. `id` e `createdAt` si
+possono comunque passare dall'esterno con il quarto argomento: sarà il
+repository, non il motore, a leggere l'orologio.
+
+### D-022 · Tre campi in più nel modello
+
+- `Slot.tier` — `week.js` deve applicare «+1 serie sui secondary» senza avere
+  in mano il catalogo, e `reduce.js` in Fase 5 avrà lo stesso bisogno.
+- `ProgramDay.patterns` — i pattern che il giorno si è impegnato a coprire.
+  Senza, il criterio «ogni pattern multiarticolare del giorno è presente come
+  main» diventa una tautologia, perché i pattern si dedurrebbero dagli slot.
+- `ProgramDay.estimatedSeconds` — la durata stimata, che la Home deve mostrare.
+
+### D-023 · Quali sono i «gruppi grandi»
+
+Il criterio 3.7 chiede che il volume di ogni gruppo grande stia nel range del
+livello. Presi alla lettera «grandi = tutti tranne polpacci, avambracci e
+obliqui», diversi gruppi sono irraggiungibili: i trapezi hanno un solo esercizio
+primario in catalogo (le scrollate), i deltoidi laterali solo le alzate. Per
+arrivare a 16 serie settimanali di deltoidi laterali da avanzato la seduta
+diventerebbe una fila di alzate laterali.
+
+I gruppi grandi sono quindi i cinque attorno a cui è costruito lo split e che
+ricevono lavoro come main o secondary: **petto, dorsali, quadricipiti,
+femorali, glutei**. Tutti gli altri hanno il target dimezzato previsto da 3.3.
+
+`upper-back` è il caso che ha deciso la questione: è primario solo negli
+esercizi `h-pull`, che compaiono al massimo due volte a settimana, e nessun
+esercizio di isolamento lo ha come primario. Prima di spostarlo, era l'unico
+gruppo che impediva a un avanzato con 6 giorni da 90 minuti di restare
+avanzato. I dorsali fanno già da rappresentante del volume di schiena.
+
+### D-024 · Tetto di pattern multiarticolari per livello
+
+Massimo 2 per un principiante, 3 per un intermedio, 4 per un avanzato. Non è un
+vincolo di tempo ma di volume: tre grandi multiarticolari in un giorno
+producono da soli più serie di quante ne preveda il range di un principiante, e
+non resterebbe spazio per nessun accessorio. Senza questo tetto, un principiante
+su 4 giorni upper/lower riceveva 28 serie settimanali di glutei — volume da
+avanzato abbondante. È il modo in cui si applica la nota di 3.1: «beginner con
+4+ giorni: stesso split, volume da principiante».
+
+### D-025 · I main non possono occupare più del 60 % della seduta
+
+Con quattro pattern in un giorno da 60 minuti, i main esaurivano il budget e i
+gruppi che si allenano solo in isolamento restavano a zero serie. Il limite ha
+però un pavimento di due pattern, altrimenti a 30 minuti in forza sarebbe
+l'unico vincolo attivo e il giorno degenererebbe in un solo main, violando il
+criterio esplicito di 3.7.
+
+### D-026 · Il tetto di volume vince sulla regola dell'85 %
+
+La sezione 3.4 dice di non sprecare il tempo disponibile (seduta ≥ 85 % del
+budget); la 3.3 dice di non superare il volume del livello. Con 5 giorni da 90
+minuti da principiante le due regole si contraddicono. Vince il volume: la
+seduta finisce prima. Dare a un principiante venti serie di petto perché aveva
+tempo sarebbe un errore di programmazione, non un uso efficiente dell'orario.
+
+Il test lo verifica in forma condizionale: un giorno può stare sotto l'85 % solo
+se almeno un gruppo grande ha raggiunto il massimo del suo range. Sulle 225
+combinazioni non c'è **nessun** giorno sotto l'85 % senza quella giustificazione.
+
+### D-027 · `volumeWarning`, distinto da `volumeNote`
+
+Con 2 giorni da 30 minuti nemmeno il livello principiante raggiunge il minimo:
+la scala dei livelli non ha un gradino più basso. Il criterio 3.7 impone che
+`volumeNote` sia `null` quando il livello non è stato degradato, e un
+principiante in quel caso non viene degradato. Il campo separato `volumeWarning`
+dice comunque all'utente che il volume resterà sotto il minimo consigliato,
+senza rompere il contratto testato.
+
+### D-028 · I main non hanno tetto di volume, i secondary sì
+
+I main definiscono lo split: toglierli significa smontare il programma. Sono
+loro a stabilire il volume di partenza. Il tetto agisce sui secondary, sugli
+accessori e sulla crescita delle serie — nell'ordine in cui è sensato togliere
+lavoro.
+
+### D-029 · Riempimento a rotazione fra i giorni, non giorno per giorno
+
+Costruire ogni giorno fino a saturazione affamava gli ultimi: il tetto di volume
+è settimanale, e i primi tre giorni lo consumavano tutto. Con 6 giorni, Push B e
+Pull B finivano con due soli esercizi al 28 % del budget. Accessori e serie
+extra si distribuiscono ora a rotazione su tutti i giorni.
+
+Stessa logica nella rotazione degli esercizi: un candidato respinto dal tetto di
+volume **non** consuma il turno. Prima lo consumava, e bastava una pescata
+sfortunata perché un giorno perdesse tutti i suoi secondary.
+
+### D-030 · La pagina di debug non esiste in produzione
+
+È dietro `import.meta.env.DEV` **e** dietro un import dinamico. Il primo la
+rende irraggiungibile, il secondo la toglie davvero dal bundle: con l'import
+statico la build passava da 153 a 204 kB, perché si portava dietro il catalogo
+esercizi. Così la guardia sul disclaimer resta senza eccezioni in produzione.
